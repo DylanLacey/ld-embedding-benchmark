@@ -8,7 +8,8 @@
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "scrape": "tsx src/scraper.ts"
+    "scrape": "tsx src/scraper.ts",
+    "migrate:neon": "tsx src/migrate-to-neon.ts"
   },
   "keywords": [],
   "author": "",
