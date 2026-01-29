@@ -10,6 +10,636 @@
 
 ---
 
+## Phase 0: Neon Provisioning & Config Storage
+
+### Task 0a: Config Directory Structure
+
+**Files:**
+- Create: `src/paths.ts`
+
+**Step 1: Create paths module for config directory**
+
+```typescript
+// src/paths.ts
+import path from "node:path";
+import os from "node:os";
+import fs from "node:fs";
+
+export const CONFIG_DIR = path.join(os.homedir(), ".embedding_test");
+export const CONFIG_FILE = path.join(CONFIG_DIR, "config.json");
+export const README_FILE = path.join(CONFIG_DIR, "README.txt");
+
+export interface StoredConfig {
+  neonApiKey?: string;
+  neonProjectId?: string;
+  neonProjectName?: string;
+  databaseUrl?: string;
+  createdAt?: string;
+}
+
+const README_CONTENT = `═══════════════════════════════════════════════════════════════════
+ ~/.embedding_test — Embedding Benchmark Configuration
+═══════════════════════════════════════════════════════════════════
+
+This directory stores configuration for the embedding4ld benchmark
+tool. It contains credentials and state for your Neon database.
+
+Files:
+  config.json  — Neon project ID, API key, database URL
+  README.txt   — This file
+
+Commands:
+  embedding4ld init      — Create Neon project and store credentials
+  embedding4ld destroy   — Delete Neon project and remove this directory
+  embedding4ld status    — Show current configuration
+
+The config.json file contains sensitive credentials. Do not share it.
+If you delete this directory, you'll need to run 'init' again.
+
+Project: https://github.com/your-repo/embedding4ld
+═══════════════════════════════════════════════════════════════════
+`;
+
+export function ensureConfigDir(): void {
+  if (!fs.existsSync(CONFIG_DIR)) {
+    fs.mkdirSync(CONFIG_DIR, { recursive: true });
+    fs.writeFileSync(README_FILE, README_CONTENT);
+  }
+}
+
+export function readConfig(): StoredConfig {
+  ensureConfigDir();
+  if (!fs.existsSync(CONFIG_FILE)) {
+    return {};
+  }
+  const content = fs.readFileSync(CONFIG_FILE, "utf-8");
+  return JSON.parse(content);
+}
+
+export function writeConfig(config: StoredConfig): void {
+  ensureConfigDir();
+  fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+}
+
+export function deleteConfigDir(): void {
+  if (fs.existsSync(CONFIG_DIR)) {
+    fs.rmSync(CONFIG_DIR, { recursive: true });
+  }
+}
+
+export function configExists(): boolean {
+  return fs.existsSync(CONFIG_FILE);
+}
+```
+
+**Step 2: Commit**
+
+```bash
+git add src/paths.ts
+git commit -m "feat: add config directory management (~/.embedding_test)"
+```
+
+---
+
+### Task 0b: Neon API Client
+
+**Files:**
+- Create: `src/neon-api.ts`
+
+**Step 1: Create Neon Management API client**
+
+```typescript
+// src/neon-api.ts
+import { readConfig, writeConfig, type StoredConfig } from "./paths.js";
+
+const NEON_API_BASE = "https://console.neon.tech/api/v2";
+
+interface NeonProject {
+  id: string;
+  name: string;
+  created_at: string;
+}
+
+interface NeonBranch {
+  id: string;
+  name: string;
+  parent_id?: string;
+  created_at: string;
+}
+
+interface NeonEndpoint {
+  id: string;
+  host: string;
+  branch_id: string;
+}
+
+interface NeonConnectionUri {
+  connection_uri: string;
+}
+
+async function neonFetch<T>(
+  apiKey: string,
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const response = await fetch(`${NEON_API_BASE}${endpoint}`, {
+    ...options,
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Neon API error (${response.status}): ${error}`);
+  }
+
+  return response.json();
+}
+
+export async function createNeonProject(
+  apiKey: string,
+  name: string
+): Promise<{ project: NeonProject; connectionUri: string }> {
+  const result = await neonFetch<{
+    project: NeonProject;
+    connection_uris: NeonConnectionUri[];
+  }>(apiKey, "/projects", {
+    method: "POST",
+    body: JSON.stringify({
+      project: { name },
+    }),
+  });
+
+  return {
+    project: result.project,
+    connectionUri: result.connection_uris[0]?.connection_uri ?? "",
+  };
+}
+
+export async function deleteNeonProject(apiKey: string, projectId: string): Promise<void> {
+  await neonFetch(apiKey, `/projects/${projectId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function listNeonBranches(
+  apiKey: string,
+  projectId: string
+): Promise<NeonBranch[]> {
+  const result = await neonFetch<{ branches: NeonBranch[] }>(
+    apiKey,
+    `/projects/${projectId}/branches`
+  );
+  return result.branches;
+}
+
+export async function createNeonBranch(
+  apiKey: string,
+  projectId: string,
+  name: string,
+  parentBranchId?: string
+): Promise<{ branch: NeonBranch; connectionUri: string }> {
+  const body: Record<string, unknown> = {
+    branch: { name },
+    endpoints: [{ type: "read_write" }],
+  };
+
+  if (parentBranchId) {
+    body.branch = { name, parent_id: parentBranchId };
+  }
+
+  const result = await neonFetch<{
+    branch: NeonBranch;
+    connection_uris: NeonConnectionUri[];
+  }>(apiKey, `/projects/${projectId}/branches`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+
+  return {
+    branch: result.branch,
+    connectionUri: result.connection_uris[0]?.connection_uri ?? "",
+  };
+}
+
+export async function deleteNeonBranch(
+  apiKey: string,
+  projectId: string,
+  branchId: string
+): Promise<void> {
+  await neonFetch(apiKey, `/projects/${projectId}/branches/${branchId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function getBranchConnectionUri(
+  apiKey: string,
+  projectId: string,
+  branchId: string
+): Promise<string> {
+  // Get endpoints for branch
+  const endpoints = await neonFetch<{ endpoints: NeonEndpoint[] }>(
+    apiKey,
+    `/projects/${projectId}/branches/${branchId}/endpoints`
+  );
+
+  const endpoint = endpoints.endpoints[0];
+  if (!endpoint) {
+    throw new Error(`No endpoint found for branch ${branchId}`);
+  }
+
+  // Get connection URI for endpoint
+  const result = await neonFetch<{ uri: string }>(
+    apiKey,
+    `/projects/${projectId}/connection_uri?branch_id=${branchId}&endpoint_id=${endpoint.id}&database_name=neondb&role_name=neondb_owner`
+  );
+
+  return result.uri;
+}
+
+// Helper to get API key from config or throw
+export function getApiKey(): string {
+  const config = readConfig();
+  if (!config.neonApiKey) {
+    throw new Error("Neon API key not found. Run 'embedding4ld init' first.");
+  }
+  return config.neonApiKey;
+}
+
+// Helper to get project ID from config or throw
+export function getProjectId(): string {
+  const config = readConfig();
+  if (!config.neonProjectId) {
+    throw new Error("Neon project not found. Run 'embedding4ld init' first.");
+  }
+  return config.neonProjectId;
+}
+```
+
+**Step 2: Commit**
+
+```bash
+git add src/neon-api.ts
+git commit -m "feat: add Neon Management API client"
+```
+
+---
+
+### Task 0c: Init and Destroy CLI Commands
+
+**Files:**
+- Create: `src/commands/init.ts`
+- Create: `src/commands/destroy.ts`
+- Create: `src/commands/status.ts`
+
+**Step 1: Create init command**
+
+```typescript
+// src/commands/init.ts
+import ora from "ora";
+import pc from "picocolors";
+import { readConfig, writeConfig, configExists } from "../paths.js";
+import { createNeonProject } from "../neon-api.js";
+import { createNeonClient } from "../neon.js";
+import { setupGrammarSchema } from "../neon-schema.js";
+
+interface InitOptions {
+  apiKey: string;
+  projectName?: string;
+  force?: boolean;
+}
+
+export async function initProject(options: InitOptions): Promise<void> {
+  const { apiKey, projectName = "embedding-benchmark", force } = options;
+  const spinner = ora();
+
+  // Check existing config
+  if (configExists() && !force) {
+    const existing = readConfig();
+    if (existing.neonProjectId) {
+      console.log(pc.yellow("\n⚠ Project already initialized."));
+      console.log(pc.dim(`  Project ID: ${existing.neonProjectId}`));
+      console.log(pc.dim(`  Use --force to reinitialize (will NOT delete existing project)\n`));
+      return;
+    }
+  }
+
+  try {
+    // Create Neon project
+    spinner.start("Creating Neon project...");
+    const { project, connectionUri } = await createNeonProject(apiKey, projectName);
+    spinner.succeed(`Created project: ${project.name} (${project.id})`);
+
+    // Store config
+    writeConfig({
+      neonApiKey: apiKey,
+      neonProjectId: project.id,
+      neonProjectName: project.name,
+      databaseUrl: connectionUri,
+      createdAt: new Date().toISOString(),
+    });
+
+    // Setup schema
+    spinner.start("Setting up database schema...");
+    const sql = createNeonClient(connectionUri);
+    await setupGrammarSchema(sql);
+    spinner.succeed("Database schema ready");
+
+    console.log(pc.green("\n✿ Initialization complete!\n"));
+    console.log(pc.dim("  Config stored in: ~/.embedding_test/config.json"));
+    console.log(pc.dim(`  Database URL: ${connectionUri.replace(/:[^:@]+@/, ":***@")}\n`));
+    console.log(pc.cyan("Next steps:"));
+    console.log(pc.dim("  1. embedding4ld migrate    # Import grammar data"));
+    console.log(pc.dim("  2. embedding4ld embed <model>"));
+    console.log(pc.dim("  3. embedding4ld benchmark <model>\n"));
+  } catch (error) {
+    spinner.fail("Initialization failed");
+    throw error;
+  }
+}
+```
+
+**Step 2: Create destroy command**
+
+```typescript
+// src/commands/destroy.ts
+import ora from "ora";
+import pc from "picocolors";
+import { readConfig, deleteConfigDir, configExists } from "../paths.js";
+import { deleteNeonProject } from "../neon-api.js";
+import readline from "node:readline";
+
+async function confirm(message: string): Promise<boolean> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise((resolve) => {
+    rl.question(`${message} (y/N) `, (answer) => {
+      rl.close();
+      resolve(answer.toLowerCase() === "y");
+    });
+  });
+}
+
+export async function destroyProject(options: { force?: boolean }): Promise<void> {
+  const spinner = ora();
+
+  if (!configExists()) {
+    console.log(pc.yellow("\n⚠ No project found. Nothing to destroy.\n"));
+    return;
+  }
+
+  const config = readConfig();
+
+  if (!options.force) {
+    console.log(pc.red("\n╭────────────────────────────────────────╮"));
+    console.log(pc.red("│  ⚠  WARNING: DESTRUCTIVE OPERATION    │"));
+    console.log(pc.red("╰────────────────────────────────────────╯\n"));
+    console.log(pc.yellow("This will:"));
+    console.log(pc.dim(`  • Delete Neon project: ${config.neonProjectName} (${config.neonProjectId})`));
+    console.log(pc.dim("  • Remove all branches and embeddings"));
+    console.log(pc.dim("  • Delete ~/.embedding_test directory\n"));
+
+    const confirmed = await confirm(pc.bold("Are you sure?"));
+    if (!confirmed) {
+      console.log(pc.dim("\nAborted.\n"));
+      return;
+    }
+  }
+
+  try {
+    // Delete Neon project
+    if (config.neonProjectId && config.neonApiKey) {
+      spinner.start("Deleting Neon project...");
+      await deleteNeonProject(config.neonApiKey, config.neonProjectId);
+      spinner.succeed("Neon project deleted");
+    }
+
+    // Delete config directory
+    spinner.start("Removing config directory...");
+    deleteConfigDir();
+    spinner.succeed("Config directory removed");
+
+    console.log(pc.green("\n✿ Project destroyed. Goodbye!\n"));
+  } catch (error) {
+    spinner.fail("Destroy failed");
+    throw error;
+  }
+}
+```
+
+**Step 3: Create status command**
+
+```typescript
+// src/commands/status.ts
+import pc from "picocolors";
+import Table from "cli-table3";
+import { readConfig, configExists, CONFIG_DIR } from "../paths.js";
+import { listNeonBranches, getApiKey, getProjectId } from "../neon-api.js";
+
+export async function showStatus(): Promise<void> {
+  if (!configExists()) {
+    console.log(pc.yellow("\n⚠ Not initialized. Run 'embedding4ld init' first.\n"));
+    return;
+  }
+
+  const config = readConfig();
+
+  console.log(pc.cyan("\n╭────────────────────────────────────────╮"));
+  console.log(pc.cyan("│  ") + pc.bold("embedding4ld status") + pc.cyan("                 │"));
+  console.log(pc.cyan("╰────────────────────────────────────────╯\n"));
+
+  const configTable = new Table({
+    style: { head: [], border: [] },
+  });
+
+  configTable.push(
+    [pc.dim("Config dir"), CONFIG_DIR],
+    [pc.dim("Project"), `${config.neonProjectName} (${config.neonProjectId})`],
+    [pc.dim("Created"), config.createdAt ?? "unknown"],
+    [pc.dim("Database"), config.databaseUrl?.replace(/:[^:@]+@/, ":***@") ?? "not set"]
+  );
+
+  console.log(configTable.toString());
+
+  // List branches
+  try {
+    const branches = await listNeonBranches(getApiKey(), getProjectId());
+
+    console.log(pc.cyan("\nBranches:"));
+    const branchTable = new Table({
+      head: [pc.bold("name"), pc.bold("id"), pc.bold("parent")],
+      style: { head: [], border: [] },
+    });
+
+    for (const branch of branches) {
+      branchTable.push([
+        branch.name,
+        branch.id,
+        branch.parent_id ?? pc.dim("(root)"),
+      ]);
+    }
+
+    console.log(branchTable.toString());
+  } catch (error) {
+    console.log(pc.yellow("\n⚠ Could not fetch branches"));
+  }
+
+  console.log();
+}
+```
+
+**Step 4: Commit**
+
+```bash
+git add src/commands/init.ts src/commands/destroy.ts src/commands/status.ts
+git commit -m "feat: add init, destroy, and status CLI commands"
+```
+
+---
+
+### Task 0d: Branch Management CLI Commands
+
+**Files:**
+- Create: `src/commands/branch.ts`
+
+**Step 1: Create branch management commands**
+
+```typescript
+// src/commands/branch.ts
+import ora from "ora";
+import pc from "picocolors";
+import Table from "cli-table3";
+import {
+  listNeonBranches,
+  createNeonBranch,
+  deleteNeonBranch,
+  getBranchConnectionUri,
+  getApiKey,
+  getProjectId,
+} from "../neon-api.js";
+
+export async function listBranches(): Promise<void> {
+  const spinner = ora("Fetching branches...").start();
+
+  try {
+    const branches = await listNeonBranches(getApiKey(), getProjectId());
+    spinner.stop();
+
+    const table = new Table({
+      head: [pc.bold("name"), pc.bold("id"), pc.bold("parent"), pc.bold("created")],
+      style: { head: [], border: [] },
+    });
+
+    for (const branch of branches) {
+      table.push([
+        branch.name,
+        branch.id.slice(0, 12) + "...",
+        branch.parent_id?.slice(0, 12) ?? pc.dim("(root)"),
+        new Date(branch.created_at).toLocaleDateString(),
+      ]);
+    }
+
+    console.log(table.toString());
+  } catch (error) {
+    spinner.fail("Failed to list branches");
+    throw error;
+  }
+}
+
+export async function createBranch(
+  name: string,
+  options: { parent?: string }
+): Promise<void> {
+  const spinner = ora(`Creating branch: ${name}`).start();
+
+  try {
+    const apiKey = getApiKey();
+    const projectId = getProjectId();
+
+    // Find parent branch ID if name provided
+    let parentBranchId: string | undefined;
+    if (options.parent) {
+      const branches = await listNeonBranches(apiKey, projectId);
+      const parent = branches.find((b) => b.name === options.parent);
+      if (!parent) {
+        throw new Error(`Parent branch not found: ${options.parent}`);
+      }
+      parentBranchId = parent.id;
+    }
+
+    const { branch, connectionUri } = await createNeonBranch(
+      apiKey,
+      projectId,
+      name,
+      parentBranchId
+    );
+
+    spinner.succeed(`Created branch: ${branch.name}`);
+    console.log(pc.dim(`  ID: ${branch.id}`));
+    console.log(pc.dim(`  URL: ${connectionUri.replace(/:[^:@]+@/, ":***@")}`));
+  } catch (error) {
+    spinner.fail("Failed to create branch");
+    throw error;
+  }
+}
+
+export async function deleteBranch(name: string): Promise<void> {
+  const spinner = ora(`Deleting branch: ${name}`).start();
+
+  try {
+    const apiKey = getApiKey();
+    const projectId = getProjectId();
+
+    // Find branch ID by name
+    const branches = await listNeonBranches(apiKey, projectId);
+    const branch = branches.find((b) => b.name === name);
+
+    if (!branch) {
+      throw new Error(`Branch not found: ${name}`);
+    }
+
+    if (branch.name === "main") {
+      throw new Error("Cannot delete main branch");
+    }
+
+    await deleteNeonBranch(apiKey, projectId, branch.id);
+    spinner.succeed(`Deleted branch: ${name}`);
+  } catch (error) {
+    spinner.fail("Failed to delete branch");
+    throw error;
+  }
+}
+
+export async function getBranchUrl(name: string): Promise<string> {
+  const apiKey = getApiKey();
+  const projectId = getProjectId();
+
+  const branches = await listNeonBranches(apiKey, projectId);
+  const branch = branches.find((b) => b.name === name);
+
+  if (!branch) {
+    throw new Error(`Branch not found: ${name}`);
+  }
+
+  return getBranchConnectionUri(apiKey, projectId, branch.id);
+}
+```
+
+**Step 2: Commit**
+
+```bash
+git add src/commands/branch.ts
+git commit -m "feat: add branch management CLI commands"
+```
+
+---
+
 ## Phase 1: Infrastructure
 
 ### Task 1: Add Dependencies
@@ -47,28 +677,36 @@ git commit -m "chore: add neon, commander, cli styling dependencies"
 
 **Step 1: Create config module**
 
+Neon credentials come from `~/.embedding_test/config.json` (managed by `init` command).
+Embedding provider keys use environment variables.
+
 ```typescript
 // src/config.ts
 import { config } from "dotenv";
+import { readConfig, type StoredConfig } from "./paths.js";
 
 config();
 
+// Embedding provider keys from environment
 export const env = {
-  // Neon
-  databaseUrl: process.env.DATABASE_URL ?? "",
-  neonProjectId: process.env.NEON_PROJECT_ID ?? "",
-  neonApiKey: process.env.NEON_API_KEY ?? "",
-
-  // Embedding providers
   hfToken: process.env.HF_TOKEN ?? "",
   openaiApiKey: process.env.OPENAI_API_KEY ?? "",
   cohereApiKey: process.env.COHERE_API_KEY ?? "",
 } as const;
 
+// Neon config from ~/.embedding_test/config.json
+export function getNeonConfig(): StoredConfig {
+  const config = readConfig();
+  if (!config.databaseUrl) {
+    throw new Error("Neon not configured. Run 'embedding4ld init' first.");
+  }
+  return config;
+}
+
 export function validateEnv(required: (keyof typeof env)[]): void {
   const missing = required.filter((key) => !env[key]);
   if (missing.length > 0) {
-    throw new Error(`Missing required environment variables: ${missing.join(", ")}`);
+    throw new Error(`Missing environment variables: ${missing.join(", ")}`);
   }
 }
 ```
@@ -76,15 +714,10 @@ export function validateEnv(required: (keyof typeof env)[]): void {
 **Step 2: Update .env.example**
 
 ```bash
-# Neon
-DATABASE_URL=postgresql://user:pass@ep-xxx.region.neon.tech/dbname?sslmode=require
-NEON_PROJECT_ID=
-NEON_API_KEY=
-
-# Embedding providers
-HF_TOKEN=
-OPENAI_API_KEY=
-COHERE_API_KEY=
+# Embedding providers (Neon credentials stored in ~/.embedding_test/)
+HF_TOKEN=hf_xxxxx
+OPENAI_API_KEY=sk-xxxxx
+COHERE_API_KEY=xxxxx
 ```
 
 **Step 3: Install dotenv**
@@ -110,7 +743,7 @@ git commit -m "feat: add environment configuration module"
 ```typescript
 // src/neon.ts
 import { neon, neonConfig } from "@neondatabase/serverless";
-import { env, validateEnv } from "./config.js";
+import { getNeonConfig } from "./config.js";
 
 // Enable connection pooling
 neonConfig.fetchConnectionCache = true;
@@ -118,18 +751,24 @@ neonConfig.fetchConnectionCache = true;
 export type NeonClient = ReturnType<typeof neon>;
 
 export function createNeonClient(branchUrl?: string): NeonClient {
-  validateEnv(["databaseUrl"]);
-  const url = branchUrl ?? env.databaseUrl;
+  const config = getNeonConfig();
+  const url = branchUrl ?? config.databaseUrl;
+  if (!url) {
+    throw new Error("No database URL available. Run 'embedding4ld init' first.");
+  }
   return neon(url);
 }
 
 // Helper to derive branch URL from main URL
 export function getBranchUrl(branchId: string): string {
-  validateEnv(["databaseUrl"]);
+  const config = getNeonConfig();
+  if (!config.databaseUrl) {
+    throw new Error("No database URL configured.");
+  }
   // Replace the endpoint ID in the URL with the branch endpoint
   // Format: postgresql://user:pass@ep-xxx.region.neon.tech/db
   // Branch: postgresql://user:pass@ep-yyy.region.neon.tech/db
-  const url = new URL(env.databaseUrl);
+  const url = new URL(config.databaseUrl);
   const hostParts = url.hostname.split(".");
   hostParts[0] = `ep-${branchId}`;
   url.hostname = hostParts.join(".");
@@ -1196,6 +1835,10 @@ import { runBenchmark } from "./benchmark-runner.js";
 import { migrateGrammarToNeon } from "./migrate-to-neon.js";
 import { openBenchmarkDatabase } from "./benchmark-db.js";
 import { MODEL_REGISTRY } from "./embeddings/types.js";
+import { initProject } from "./commands/init.js";
+import { destroyProject } from "./commands/destroy.js";
+import { showStatus } from "./commands/status.js";
+import { listBranches, createBranch, deleteBranch } from "./commands/branch.js";
 
 const BANNER = `
 ╭──────────────────────────────────────────────╮
@@ -1215,6 +1858,73 @@ program
   .hook("preAction", () => {
     console.log(pc.cyan(BANNER));
   });
+
+// ─────────────────────────────────────────────
+// Project lifecycle commands
+// ─────────────────────────────────────────────
+
+program
+  .command("init")
+  .description("Create Neon project and store credentials in ~/.embedding_test")
+  .requiredOption("-k, --api-key <key>", "Neon API key (from console.neon.tech)")
+  .option("-n, --name <name>", "Project name", "embedding-benchmark")
+  .option("-f, --force", "Reinitialize even if already configured")
+  .action(async (opts) => {
+    await initProject({
+      apiKey: opts.apiKey,
+      projectName: opts.name,
+      force: opts.force,
+    });
+  });
+
+program
+  .command("destroy")
+  .description("Delete Neon project and remove ~/.embedding_test")
+  .option("-f, --force", "Skip confirmation prompt")
+  .action(async (opts) => {
+    await destroyProject({ force: opts.force });
+  });
+
+program
+  .command("status")
+  .description("Show current configuration and Neon branches")
+  .action(async () => {
+    await showStatus();
+  });
+
+// ─────────────────────────────────────────────
+// Branch management commands
+// ─────────────────────────────────────────────
+
+const branchCmd = program
+  .command("branch")
+  .description("Manage Neon branches");
+
+branchCmd
+  .command("list")
+  .description("List all branches")
+  .action(async () => {
+    await listBranches();
+  });
+
+branchCmd
+  .command("create <name>")
+  .description("Create a new branch")
+  .option("-p, --parent <branch>", "Parent branch name", "main")
+  .action(async (name: string, opts) => {
+    await createBranch(name, { parent: opts.parent });
+  });
+
+branchCmd
+  .command("delete <name>")
+  .description("Delete a branch")
+  .action(async (name: string) => {
+    await deleteBranch(name);
+  });
+
+// ─────────────────────────────────────────────
+// Data commands
+// ─────────────────────────────────────────────
 
 program
   .command("migrate")
