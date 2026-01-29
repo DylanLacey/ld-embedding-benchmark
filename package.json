@@ -4,13 +4,18 @@
   "description": "AI-enhanced text search exploration with Hugging Face",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "embedding4ld": "./dist/cli.js"
+  },
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "cli": "tsx src/cli.ts",
     "scrape": "tsx src/scraper.ts",
     "migrate:neon": "tsx src/migrate-to-neon.ts",
-    "seed:queries": "tsx src/seed-queries.ts"
+    "seed:queries": "tsx src/seed-queries.ts",
+    "test:e2e": "tsx src/test-e2e.ts"
   },
   "keywords": [],
   "author": "",
