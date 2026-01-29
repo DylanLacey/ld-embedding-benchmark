@@ -9,7 +9,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "scrape": "tsx src/scraper.ts",
-    "migrate:neon": "tsx src/migrate-to-neon.ts"
+    "migrate:neon": "tsx src/migrate-to-neon.ts",
+    "seed:queries": "tsx src/seed-queries.ts"
   },
   "keywords": [],
   "author": "",
