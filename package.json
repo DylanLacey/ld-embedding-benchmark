@@ -1,0 +1,36 @@
+{
+  "name": "embedding4ld",
+  "version": "1.0.0",
+  "description": "AI-enhanced text search exploration with Hugging Face",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "scrape": "tsx src/scraper.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.13.10",
+    "better-sqlite3": "^12.6.2",
+    "cheerio": "^1.2.0",
+    "execa": "^9.6.1",
+    "listr2": "^10.1.0",
+    "playwright": "^1.58.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  }
+}

@@ -1,0 +1,1892 @@
+{
+  "grammarPoints": [
+    {
+      "id": 1,
+      "slug": "to",
+      "japanese": "と",
+      "romaji": "to",
+      "meaning": "if/when (natural result)",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8-to-meaning/",
+      "createdAt": "2026-01-29 10:27:52",
+      "updatedAt": "2026-01-29 10:27:52",
+      "examples": [
+        {
+          "id": 1,
+          "japanese": "ラーメンを毎日食べると太りますよ。",
+          "english": "If you eat ramen everyday, you're gonna gain weight.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 2,
+          "japanese": "寝る前に甘い物を食べると虫歯になります。",
+          "english": "If you eat sweets before going to bed, you will get a cavity.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 3,
+          "japanese": "私の彼氏は酒を飲むと顔が赤くなる。",
+          "english": "Whenever my boyfriend drinks, his face gets red.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 4,
+          "japanese": "勉強するの場所が静かだとよく集中できます。",
+          "english": "When the place I study at is quiet, I am able to concentrate very well.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 5,
+          "japanese": "このボタンを押すと、両方のドアが開きますよ。",
+          "english": "If you press this button, both doors will open.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 6,
+          "japanese": "最初の角を右に曲がると、銀行が見えます。",
+          "english": "If you turn right at the first corner, you will be able to see the bank.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 7,
+          "japanese": "N2を持たないと高い給料の仕事が手に入らない。",
+          "english": "If you don't have the JLPT N2, you won't be able to get a high salary job.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 8,
+          "japanese": "JLPT Senseiを検索すると僕のホームページが出ますよ。",
+          "english": "If you search for JLPT Sensei, my website will show up.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 9,
+          "japanese": "この機械にお金を入れて、食べたい物のボタンを押すと、食券が出ます。",
+          "english": "Put your money in this machine and if you push the button for the food you want to eat a meal ticket will come out.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8-to-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89-tara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89%e3%81%a9%e3%81%86-tara-dou-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0-%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89-%e3%81%a8%e3%81%99%e3%82%8b%e3%81%a8-sureba-shitara-suru-to-meaning/"
+      ],
+      "formation": "Verb (dictionary / ない form) + と"
+    },
+    {
+      "id": 2,
+      "slug": "ba",
+      "japanese": "ば",
+      "romaji": "ba",
+      "meaning": "if (hypothetical)",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+      "createdAt": "2026-01-29 10:28:02",
+      "updatedAt": "2026-01-29 10:28:02",
+      "examples": [
+        {
+          "id": 10,
+          "japanese": "このボタンを押せば、ドアが開きます。",
+          "english": "If you push this button, the door will open.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 11,
+          "japanese": "あなたが行けば、わたしも行くよ。",
+          "english": "If you go, then I'm going too.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 12,
+          "japanese": "今すぐ出発すれば間に合うでしょう。",
+          "english": "If you leave right away, you'll likely make it in time.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 13,
+          "japanese": "毎日練習をすれば、上手になるよ。",
+          "english": "If you practice everyday, you're going to improve!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 14,
+          "japanese": "数週間もすれば、みんな忘れるよ。",
+          "english": "Everyone will forget this in a few weeks.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 15,
+          "japanese": "海に行けば誰だって水着を着るわ。",
+          "english": "Everyone wears a bathing suit at the beach.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 16,
+          "japanese": "アメリカ大使館へ行きたいんですが、どう行けばいいですか。",
+          "english": "I want to go to the American embassy, do you know how to get there from here?",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%82%89-nara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84-nakereba-naranai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89-tara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0-%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89-%e3%81%a8%e3%81%99%e3%82%8b%e3%81%a8-sureba-shitara-suru-to-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%84%e3%81%84-ba-ii-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%95%e3%81%88%ef%bd%9e%e3%81%b0-sae-ba-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%ef%bd%9e%e3%81%ae%e3%81%ab-ba-noni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%aa%e3%82%89-mono-nara-meaning/"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "tara",
+      "japanese": "たら",
+      "romaji": "tara",
+      "meaning": "if/when (completed)",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89-tara-meaning/",
+      "createdAt": "2026-01-29 10:28:11",
+      "updatedAt": "2026-01-29 10:28:11",
+      "examples": [
+        {
+          "id": 17,
+          "japanese": "お金があったら、旅行します。",
+          "english": "If I had money, I would go travel.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 18,
+          "japanese": "一口食べたら、きっと好きになるよ。",
+          "english": "Taste one bite, and you will surely like it!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 19,
+          "japanese": "時間がなかったら、テレビを見ません。",
+          "english": "If I had no time, I wouldn't watch any TV.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 20,
+          "japanese": "安かったら、パソコンを買いたいです。",
+          "english": "If it's cheap, I'd like to buy a computer.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 21,
+          "japanese": "暇だったら、手伝ってください。",
+          "english": "If you're free, please help me out.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 22,
+          "japanese": "いい天気だったら、散歩しませんか。",
+          "english": "If the weather is nice, would you like to go for a walk?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 23,
+          "japanese": "10時になったら、出かけましょう。",
+          "english": "Once it turns 10 o'clock, let's head out.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 24,
+          "japanese": "お酒を飲んだら、車を運転しません。",
+          "english": "I don't drive my car if I am drinking alcohol.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 25,
+          "japanese": "甘い物を食べたら虫歯になる。",
+          "english": "If you eat sweet things you will get a cavity.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89%e3%81%a9%e3%81%86-tara-dou-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89%e3%81%84%e3%81%84%e3%81%a7%e3%81%99%e3%81%8b-tara-ii-desu-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8-to-meaning-whenever/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%82%89-nara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0-%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89-%e3%81%a8%e3%81%99%e3%82%8b%e3%81%a8-sureba-shitara-suru-to-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%97%e3%81%8b%e3%81%97%e3%81%9f%e3%82%89-moshika-shitara-%e3%82%82%e3%81%97%e3%81%8b%e3%81%99%e3%82%8b%e3%81%a8-meaning/"
+      ],
+      "formation": "Verb (た form) + ら"
+    },
+    {
+      "id": 4,
+      "slug": "nara",
+      "japanese": "なら",
+      "romaji": "nara",
+      "meaning": "if (contextual)",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%82%89-nara-meaning/",
+      "createdAt": "2026-01-29 10:28:20",
+      "updatedAt": "2026-01-29 10:28:20",
+      "examples": [
+        {
+          "id": 26,
+          "japanese": "もし違うなら。",
+          "english": "What if you're wrong?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 27,
+          "japanese": "それなら問題ありません。",
+          "english": "If that's the case, then there are no problems.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 28,
+          "japanese": "やるなら今しかない。",
+          "english": "If you're gonna do it, it's now or never.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 29,
+          "japanese": "日本語を習いたいのなら、いい先生を紹介してあげる。",
+          "english": "If you want to learn Japanese I can introduce you to a good teacher.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 30,
+          "japanese": "君なら必ずできる。",
+          "english": "Since it's you, you can definitely do it!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 31,
+          "japanese": "あの店なら何を食べても美味しい。",
+          "english": "No matter what you eat at that place, everything is good. (shows trust in the that shop)",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 32,
+          "japanese": "彼ならいつでも力になってくれるよ。",
+          "english": "If it’s him, he's always willing to help out.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 33,
+          "japanese": "夏休みの旅行なら北海道がいいですよ。",
+          "english": "If you're thinking about summer holiday plans, I think Hokkaido is great.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 34,
+          "japanese": "あのドラマならまだ見ていない。",
+          "english": "If you're talking about that drama, I still haven't seen it.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 35,
+          "japanese": "図書館なら案内してあげます。",
+          "english": "If you're looking for the library, I'll help guide you there.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89-tara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%9c%e3%81%aa%e3%82%89-nazenara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0-%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89-%e3%81%a8%e3%81%99%e3%82%8b%e3%81%a8-sureba-shitara-suru-to-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%aa%e3%82%89-mono-nara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%82%89%e3%81%a7%e3%81%af-nara-dewa-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%82%89%e3%81%84%e3%81%aa%e3%82%89-kurai-nara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8c-%e3%82%82%ef%bd%9e%e3%81%aa%e3%82%89%ef%bd%9e%e3%82%82%ef%bd%9e%e3%81%a0-ga-mo-nara-mo-da-meaning/"
+      ],
+      "formation": "Verb (casual form) + (の) + なら"
+    },
+    {
+      "id": 5,
+      "slug": "temo",
+      "japanese": "ても",
+      "romaji": "temo",
+      "meaning": "even if; even though",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82-temo-meaning/",
+      "createdAt": "2026-01-29 10:28:29",
+      "updatedAt": "2026-01-29 10:28:29",
+      "examples": [
+        {
+          "id": 36,
+          "japanese": "たくさん食べても、お腹が空きます。",
+          "english": "Even if I eat a lot, I still feel hungry.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 37,
+          "japanese": "日曜日でも、働きます。",
+          "english": "I work even on Sundays.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 38,
+          "japanese": "子どもでもできることよ。",
+          "english": "Even children can do this.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 39,
+          "japanese": "必要なので、高くても買います。",
+          "english": "I need this, so I'll still buy it even if it's expensive.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 40,
+          "japanese": "これは多いですよ。がんばっても食べ切れない。",
+          "english": "There is too much.. Even if I give it my all I can't eat everything.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 41,
+          "japanese": "安くても、私はグループ旅行が好きじゃない。",
+          "english": "Even if it's cheaper, I don't like traveling in a group.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 42,
+          "japanese": "今でも遅くないから、早く謝りなさい。",
+          "english": "It's not too late, hurry up and apologize.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 43,
+          "japanese": "いくらお金があっても、金で買えないものがあります。",
+          "english": "No matter how much money you have, there are still things that money cannot buy.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 44,
+          "japanese": "雨が降っても、今日洗濯をします。",
+          "english": "Even if it rains, I'm doing the laundry today.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 45,
+          "japanese": "宝くじが当たっても、私の今の生活は変わらないと思もう。",
+          "english": "Even if I were to win the lottery, I don't think my life would change much.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 46,
+          "japanese": "日本に来ても、ちゃんと勉強しないと日本語は上手になりませんよ。",
+          "english": "Even if you come to Japan, you still need to properly study or you won't get good at Japanese.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 47,
+          "japanese": "両眼があっても、光がなければ見ることはできない。",
+          "english": "Even with both eyes, without light one cannot see.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a7%e3%82%82-demo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82%e3%81%84%e3%81%84%e3%81%a7%e3%81%99%e3%81%8b-temo-ii-desu-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82-mo-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e8%a8%80%e3%81%a3%e3%81%a6%e3%82%82%e3%81%84%e3%81%84-to-ittemo-ii-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%a7%e3%82%82-te-demo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a9%e3%82%93%e3%81%aa%e3%81%ab%ef%bd%9e%e3%81%a6%e3%82%82-donna-ni-temo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82%e3%81%97%e3%82%87%e3%81%86%e3%81%8c%e3%81%aa%e3%81%84%e3%83%bb%e3%81%a6%e3%82%82%e4%bb%95%e6%96%b9%e3%81%8c%e3%81%aa%e3%81%84-temo-shou-ga-nai-temo-shikata-ga-nai-meaning/"
+      ],
+      "formation": "Verb (て form) + も"
+    },
+    {
+      "id": 6,
+      "slug": "noni",
+      "japanese": "のに",
+      "romaji": "noni",
+      "meaning": "although; despite",
+      "level": "N3",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%81%ab-noni-meaning/",
+      "createdAt": "2026-01-29 10:28:38",
+      "updatedAt": "2026-01-29 10:28:38",
+      "examples": [
+        {
+          "id": 48,
+          "japanese": "まだ20時なのに、とても眠い。",
+          "english": "I'm really tired even though it's still only 8PM.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 49,
+          "japanese": "なぜ、彼らは冬なのに泳ぐのでしょうか？",
+          "english": "Why will they swim even though it's winter?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 50,
+          "japanese": "約束をしたのに、彼女は来ませんでした。",
+          "english": "Even though she promised, she didn't come..",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 51,
+          "japanese": "今日は日曜日なのに、働かなければなりません。",
+          "english": "I have to work today even though it is Sunday..",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 52,
+          "japanese": "彼女がきれいなのに彼氏がいません。",
+          "english": "Although she is very beautiful, she doesn't have a boyfriend.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 53,
+          "japanese": "この携帯は高いのに、すぐに壊れた。",
+          "english": "Even though this cell phone was really expensive, it broke right away.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 54,
+          "japanese": "薬を飲んだのに、ねつがまだ下がりません。",
+          "english": "Even though I took medicine, my fever didn't go down.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 55,
+          "japanese": "仕事中なのに、彼はパソコンでゲームをしています。",
+          "english": "Even though he's in the middle of work, he's playing games on his computer.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 56,
+          "japanese": "あなたの家が近いのに、いつも会社に遅れたね。",
+          "english": "In spite of your home being close, you were always late for work..",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%81%ab-noni-meaning-to-do/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%81%9b%e3%81%97%e3%81%a6-kuse-shite-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%81%9b%e3%81%ab-kuse-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%91%e3%82%8c%e3%81%a9%e3%82%82-keredo-mo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%91%e3%81%a9-kedo-meaning/"
+      ],
+      "formation": "Verb (casual form) + のに"
+    },
+    {
+      "id": 7,
+      "slug": "ba-hodo",
+      "japanese": "ば〜ほど",
+      "romaji": "ba~hodo",
+      "meaning": "the more... the more",
+      "level": "N3",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%ef%bd%9e%e3%81%bb%e3%81%a9-ba-hodo-meaning/",
+      "createdAt": "2026-01-29 10:28:46",
+      "updatedAt": "2026-01-29 10:28:46",
+      "examples": [
+        {
+          "id": 57,
+          "japanese": "ビートルズの音楽は聞けば聞くほど好きになります。",
+          "english": "The more I listen to The Beetles, the more I end up liking their music.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 58,
+          "japanese": "考えれば考えるほどわからなくなる。",
+          "english": "The more I think about it, the less I understand.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 59,
+          "japanese": "勉強すればするほど、日本語が上手になりますよ。",
+          "english": "The more you study, the better your Japanese will get.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 60,
+          "japanese": "スーパーは家から近ければ近いほど便利です。",
+          "english": "The closer the supermarket is to home, the more convenient it is.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 61,
+          "japanese": "日本語は話せば話すほど上手になります。",
+          "english": "The more Japanese you speak, the more you will improve.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 62,
+          "japanese": "お金はあればあるほど安心です。",
+          "english": "The more money I have, the more safe I feel.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 63,
+          "japanese": "パソコンは操作が簡単なら簡単なほどいいです。",
+          "english": "The easier the computer is to use the better.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 64,
+          "japanese": "ゲームは相手が強ければ強いほどおもしろいです。",
+          "english": "Games get more interesting as the opponents get stronger.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e7%a8%8b-%e3%81%bb%e3%81%a9-hodo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%bb%e3%81%a9%ef%bd%9e%e3%81%aa%e3%81%84-hodo-nai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%bb%e3%81%a9-%e3%82%88%e3%81%a3%e3%81%bd%e3%81%a9-yohodo-yoppodo-meaning/"
+      ],
+      "formation": "Verb(ば conditional form) + same Verb + ほど\nな-adjective + なら + same な-adj + なほど\nい-adjective + いければ + same い-adj + ほど"
+    },
+    {
+      "id": 8,
+      "slug": "toshitemo",
+      "japanese": "としても",
+      "romaji": "toshitemo",
+      "meaning": "even assuming; even if",
+      "level": "N2",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%97%e3%81%a6%e3%82%82-toshitemo-meaning/",
+      "createdAt": "2026-01-29 10:28:56",
+      "updatedAt": "2026-01-29 10:28:56",
+      "examples": [
+        {
+          "id": 65,
+          "japanese": "今回の試験で不合格になったとしても、諦めずに次回も受験するつもりです。",
+          "english": "Even if I were to fail the exam this time, I plan to not give up and take the exam again.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 66,
+          "japanese": "たとえ買えるとしても，そんな家は買わないだろう。",
+          "english": "I wouldn't buy such a house even if I could.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 67,
+          "japanese": "学校を卒業後、国に帰ったとしても、日本語の勉強は続けるつもりです。",
+          "english": "After I graduate school, even if I head to my home country, I plan to continue studying Japanese.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 68,
+          "japanese": "私はお金持ちになったとしても、今と変わらない生活をするでしょう。",
+          "english": "Even if I were to become rich, my life likely wouldn't change much from what it is like now.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 69,
+          "japanese": "彼を説得しようとしても無駄だ。",
+          "english": "It's pointless to try to persuade him.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 70,
+          "japanese": "ジョギングに行くと決めていた日に、たとえ雨が降ったとしても、決行するのだ。",
+          "english": "On the day you decided to go jogging, even if it's raining, make sure you do it.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 71,
+          "japanese": "たとえ失敗したとしても、またチャレンジすればいい。",
+          "english": "Even if you fail, just continue to challenge yourself.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%81%97%e3%81%9f%e3%81%a3%e3%81%a6-%e3%81%ab%e3%81%97%e3%81%9f%e3%81%a8%e3%81%93%e3%82%8d%e3%81%a7-ni-shitatte-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%a6-tote-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%a8%e3%81%97%e3%81%a6-mono-toshite-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82%e7%9f%a5%e3%82%89%e3%81%aa%e3%81%84-temo-shiranai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%82%82-tomo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%82%8c%e3%81%aa%e3%82%89-sore-nara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%81%86%e3%81%99%e3%82%8b%e3%81%a8-sou-suru-to-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%82%8c%e3%81%ab%e3%81%97%e3%81%a6%e3%82%82-sore-ni-shitemo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%97%e3%81%a6%ef%bd%9e%e3%81%aa%e3%81%84-toshite-nai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%84%e3%81%a6%e3%81%af-te-ite-wa-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%81%a3%e3%81%a6-tatte-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%84%e3%81%8f%e3%82%89%ef%bd%9e%e3%81%a6%e3%82%82-ikura-temo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%97%e3%81%a6-toshite-meaning/"
+      ],
+      "formation": "Verb (casual form) + としても"
+    },
+    {
+      "id": 9,
+      "slug": "tatoe-temo",
+      "japanese": "たとえ〜ても",
+      "romaji": "tatoe~temo",
+      "meaning": "even if (hypothetical)",
+      "level": "N2",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%81%a8%e3%81%88%ef%bd%9e%e3%81%a6%e3%82%82-tatoe-temo-meaning/",
+      "createdAt": "2026-01-29 10:29:07",
+      "updatedAt": "2026-01-29 10:29:07",
+      "examples": [
+        {
+          "id": 72,
+          "japanese": "たとえ彼は忙しくても来るよ。",
+          "english": "Even if he is busy, he will come.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 73,
+          "japanese": "たとえ明日雨が降っても私は出かけるつもりです。",
+          "english": "Even if it rains, I plan to go out tomorrow.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 74,
+          "japanese": "たとえ君が何を言っても私の気持ちは変わらない。",
+          "english": "No matter what you say, my feelings won't change.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 75,
+          "japanese": "私は親にたとえ反対されても留学したいです。",
+          "english": "Even if my parents are against it, I want to study abroad.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 76,
+          "japanese": "たとえ元気じゃなくても、家族への手紙には元気だと書きます。",
+          "english": "Even if I’m not well, I will write that I’m well in a letter to my family.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 77,
+          "japanese": "たとえ両親に反対されても、彼と結婚します。",
+          "english": "I will marry him, even if my parents are opposed to it.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 78,
+          "japanese": "たとえ給料が高くてもあんな仕事はしたくない。",
+          "english": "Even if the salary were high, I wouldn't want to do that kind of job.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 79,
+          "japanese": "たとえ仕事がつまらなくてもあまり文句を言わないほうがいい。",
+          "english": "Even if your job is boring, you shouldn’t complain about it too much.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%84%e3%81%8f%e3%82%89%ef%bd%9e%e3%81%a6%e3%82%82-ikura-temo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a9%e3%82%93%e3%81%aa%e3%81%ab%ef%bd%9e%e3%81%a6%e3%82%82-donna-ni-temo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a9%e3%81%86%e3%81%97%e3%81%a6%e3%82%82-doushitemo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82%e3%81%97%e3%82%87%e3%81%86%e3%81%8c%e3%81%aa%e3%81%84%e3%83%bb%e3%81%a6%e3%82%82%e4%bb%95%e6%96%b9%e3%81%8c%e3%81%aa%e3%81%84-temo-shou-ga-nai-temo-shikata-ga-nai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%97%e3%81%a6%e3%82%82-toshitemo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%81%97%e3%81%9f%e3%81%a3%e3%81%a6-%e3%81%ab%e3%81%97%e3%81%9f%e3%81%a8%e3%81%93%e3%82%8d%e3%81%a7-ni-shitatte-meaning/"
+      ],
+      "formation": "たとえ + Verb (て form) + も"
+    },
+    {
+      "id": 10,
+      "slug": "toshitara",
+      "japanese": "としたら・とすれば",
+      "romaji": "toshitara / tosureba",
+      "meaning": "if it were the case that",
+      "level": "N2",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%99%e3%82%8c%e3%81%b0-%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89-%e3%81%a8%e3%81%99%e3%82%8b%e3%81%a8-sureba-shitara-suru-to-meaning/",
+      "createdAt": "2026-01-29 10:29:16",
+      "updatedAt": "2026-01-29 10:29:16",
+      "examples": [
+        {
+          "id": 80,
+          "japanese": "選ぶとすれば、僕はこれだな。",
+          "english": "If I were to choose, I would go with this.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 81,
+          "japanese": "そこまで歩いていくとすれば、40分くらいかかるだろう。",
+          "english": "If we go by walking, it will likely take about 40 minutes.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 82,
+          "japanese": "もし車を買い換えるとすれば、次はアメリカの車が欲しい。",
+          "english": "If I were to buy a new car, I would want to get an American car.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 83,
+          "japanese": "一日25時間だとしたら、何をしますか？",
+          "english": "If there were 25 hours in a day, what would you do?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 84,
+          "japanese": "電車で行くとしたら、時間はどのくらいかかりますか。",
+          "english": "Assuming we go by train, about how much time will it take?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 85,
+          "japanese": "その話が本当だとしたら、嬉しいです！",
+          "english": "If that story is true, then I'd be really happy!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 86,
+          "japanese": "その話が本当だとすると、大変なことだ。",
+          "english": "If that story is true, then that's pretty serious..",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 87,
+          "japanese": "これを航空便で送るとするといくらかかりますか？",
+          "english": "How much would it cost to send this by airmail?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 88,
+          "japanese": "彼が犯人だとすると、犯罪を犯した動機は何だろう。",
+          "english": "If we assume that he is the culprit, then what is his motive?",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8-to-meaning-whenever/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%89-tara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%81%86%e3%81%99%e3%82%8b%e3%81%a8-sou-suru-to-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%82%84%e3%82%89-%e3%82%82%e3%81%ae%e3%82%84%e3%82%89-%e3%81%93%e3%81%a8%e3%82%84%e3%82%89-no-yara-mono-yara-koto-yara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8c-%e3%82%82%ef%bd%9e%e3%81%aa%e3%82%89%ef%bd%9e%e3%82%82%ef%bd%9e%e3%81%a0-ga-mo-nara-mo-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%82%89%e3%81%84%e3%81%aa%e3%82%89-kurai-nara-meaning/"
+      ],
+      "formation": "Verb (casual) + とすればとしたらとすると"
+    },
+    {
+      "id": 11,
+      "slug": "ba-yokatta",
+      "japanese": "ばよかった",
+      "romaji": "ba yokatta",
+      "meaning": "should have; I wish I had",
+      "level": "N3",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%82%88%e3%81%8b%e3%81%a3%e3%81%9f-ba-yokatta-meaning/",
+      "createdAt": "2026-01-29 10:29:25",
+      "updatedAt": "2026-01-29 10:29:25",
+      "examples": [
+        {
+          "id": 89,
+          "japanese": "そうすればよかった。",
+          "english": "I should have done that.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 90,
+          "japanese": "傘を持ってくればよかった。",
+          "english": "I should have brought an umbrella.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 91,
+          "japanese": "遅刻してしまった。もっと早く家を出ればよかった。",
+          "english": "I was late... I should have left home earlier.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 92,
+          "japanese": "早く連絡してくればよかったのに。",
+          "english": "You should have contacted me earlier.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 93,
+          "japanese": "友人にあんなことを言わなければよかった。",
+          "english": "I wish I hadn't said such a thing to my good friend.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 94,
+          "japanese": "夕べの番組は面白かった。あなたも見ればよかったのに。",
+          "english": "The program last night was interesting. You should have watched it!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 95,
+          "japanese": "こんなことを言わなければよかった。今は後悔している。",
+          "english": "I wish I hadn't said this... I'm really regretting it now.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 96,
+          "japanese": "新しいパソコンを買わないで、私のを使えばよかったのに。",
+          "english": "You shouldn’t have bought a new computer and used mine instead.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%88%e3%81%8b%e3%81%a3%e3%81%9f-te-yokatta-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%84%e3%81%84-ba-ii-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%ef%bd%9e%e3%81%ae%e3%81%ab-ba-noni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%ef%bd%9e%e3%81%bb%e3%81%a9-ba-hodo-meaning/"
+      ],
+      "formation": "Verb (ば conditional form) + よかった（のに）"
+    },
+    {
+      "id": 12,
+      "slug": "nakereba-naranai",
+      "japanese": "なければならない",
+      "romaji": "nakereba naranai",
+      "meaning": "must; have to",
+      "level": "N4",
+      "category": "conditional",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84-nakereba-naranai-meaning/",
+      "createdAt": "2026-01-29 10:29:36",
+      "updatedAt": "2026-01-29 10:29:36",
+      "examples": [
+        {
+          "id": 97,
+          "japanese": "薬を飲まなければなりません。",
+          "english": "I/you need to take my/your medicine.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 98,
+          "japanese": "宿題をしなければならない。",
+          "english": "I/you need to do my/your homework.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 99,
+          "japanese": "今そこに行かなければなりませんか。",
+          "english": "Do I have to go there now?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 100,
+          "japanese": "母を手伝わなければならない。",
+          "english": "I have to help my mom.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 101,
+          "japanese": "明日は早起きしなければならない。",
+          "english": "I have to get up early tomorrow.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 102,
+          "japanese": "23時前に寝なければなりません。",
+          "english": "I need to go to bed before 11pm.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 103,
+          "japanese": "体に悪いですから、タバコを辞めなければならない。",
+          "english": "Smoking is so bad for your health, I really need to quit..",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 104,
+          "japanese": "学生は学校の規則を守らなければならない。",
+          "english": "Students must follow the school rules.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 105,
+          "japanese": "もうすぐサッカーの試合がありますから、毎日練習をしなければなりません。",
+          "english": "We've got a soccer match coming up, so I need to practice every day.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%84%e3%81%91%e3%81%aa%e3%81%84-nakereba-ikenai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%8f%e3%81%a6%e3%81%af%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84-nakute-wa-naranai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%8f%e3%81%a6%e3%81%af%e3%81%84%e3%81%91%e3%81%aa%e3%81%84-nakute-wa-ikenai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%af%e3%81%84%e3%81%91%e3%81%aa%e3%81%84-te-wa-ikenai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0-ba-conditional-form-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b9%e3%81%8d%e3%81%a0-beki-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b9%e3%81%8d%e3%81%a7%e3%81%af%e3%81%aa%e3%81%84-beki-dewa-nai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%8b%e3%82%89%e3%81%a7%e3%81%aa%e3%81%84%e3%81%a8-te-kara-de-nai-to-meaning/"
+      ],
+      "formation": "Verb (ない form) ない + ければならないければなりません"
+    },
+    {
+      "id": 13,
+      "slug": "kara",
+      "japanese": "から",
+      "romaji": "kara",
+      "meaning": "because; since",
+      "level": "N5",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%82%89-kara-meaning/",
+      "createdAt": "2026-01-29 10:29:45",
+      "updatedAt": "2026-01-29 10:29:45",
+      "examples": [
+        {
+          "id": 106,
+          "japanese": "天気がいいから、外に行きたい。",
+          "english": "Since the weather is nice, I want to go outside.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 107,
+          "japanese": "私はすぐ戻るから、ここでちょっと待ってください。",
+          "english": "I'll return shortly, so please wait here just a moment.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 108,
+          "japanese": "これからもよろしくお願いします。",
+          "english": "From now on, let's have a good relationship (I'll be counting on you).",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 109,
+          "japanese": "ここからあの駅まで歩いてどれぐらいかかりますか？",
+          "english": "How long does it take to walk from here to that station?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 110,
+          "japanese": "お店は何時から何時まで開いていますか？",
+          "english": "What are the shop's opening hours?",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%8b%e3%82%89-te-kara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%82%89%e4%bd%9c%e3%82%8b-%e4%bd%9c%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b-kara-tsukuru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6-%e3%81%a7-te-de-conjunctive-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%9c%e3%81%aa%e3%82%89-nazenara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%a0%e3%81%8b%e3%82%89-mono-dakara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%93%e3%81%a8%e3%81%a0%e3%81%8b%e3%82%89-koto-dakara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%82%89%e3%81%82%e3%82%8b-kara-aru-%e3%81%8b%e3%82%89%e3%81%99%e3%82%8b-kara-suru-%e3%81%8b%e3%82%89%e3%81%ae-kara-no-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%81%b0%e3%81%8b%e3%82%89-soba-kara-meaning/"
+      ],
+      "formation": "Verb + から\nNoun + から"
+    },
+    {
+      "id": 14,
+      "slug": "node",
+      "japanese": "ので",
+      "romaji": "node",
+      "meaning": "because; since (softer)",
+      "level": "N5",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%81%a7-node-meaning/",
+      "createdAt": "2026-01-29 10:29:54",
+      "updatedAt": "2026-01-29 10:29:54",
+      "examples": [
+        {
+          "id": 111,
+          "japanese": "ちょっと寒いので、窓を閉めてもいいですか。",
+          "english": "It's a bit cold, so is it OK to close the window?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 112,
+          "japanese": "ちょっと用事があるので、先に帰ります。",
+          "english": "There's something I need to take care of, so I'm heading home early.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 113,
+          "japanese": "台風が来るので、明日のクラスに来なくていいです。",
+          "english": "Since there's a typhoon coming, it's OK to not come to tomorrow's class.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 114,
+          "japanese": "おなかが痛いので、薬をください。",
+          "english": "I have a stomachache, so please give me some medicine.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 115,
+          "japanese": "彼女がとてもきれいなので、すぐ好きになりました。",
+          "english": "Since she's very beautiful, I quickly fell in love.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 116,
+          "japanese": "今から行きますので、少々お待ちください。",
+          "english": "I'm heading over now, so please wait a moment.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 117,
+          "japanese": "雨が降っていたので、試合が中止になりました。",
+          "english": "Because of the rain, the match was cancelled.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 118,
+          "japanese": "左手で食べようとしたが、難しかったのでやめました。",
+          "english": "I tried eating with my left hand, but it was difficult so I gave up.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a7-de-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%82%89-kara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%81%a7%e3%81%99-no-desu-%e3%81%ae%e3%81%a0-noda-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%93%e3%81%a7%e3%81%99-ndesu-%e3%82%93%e3%81%a0-nda-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6-%e3%81%a7-te-de-conjunctive-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%93%e3%81%a8%e3%81%a0%e3%81%8b%e3%82%89-koto-dakara-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%a0%e3%81%8b%e3%82%89-mono-dakara-meaning/"
+      ],
+      "formation": "Verb + ので"
+    },
+    {
+      "id": 15,
+      "slug": "tame-ni",
+      "japanese": "ために",
+      "romaji": "tame ni",
+      "meaning": "for; in order to; because of",
+      "level": "N3",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%82%81%e3%81%ab-tame-ni-meaning/",
+      "createdAt": "2026-01-29 10:30:03",
+      "updatedAt": "2026-01-29 10:30:03",
+      "examples": [
+        {
+          "id": 119,
+          "japanese": "日本へ旅行をするために、貯金しています。",
+          "english": "I'm saving money to travel to Japan.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 120,
+          "japanese": "彼氏に会うために、東京に行きます。",
+          "english": "I'm going to Tokyo to see my boyfriend.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 121,
+          "japanese": "今度の面接のために、このスーツを買いました。",
+          "english": "I bought this suit for my upcoming interview.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 122,
+          "japanese": "健康のために、毎朝に走っています。",
+          "english": "For my health, I go running every morning.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 123,
+          "japanese": "私たちには、皆が公平に扱われるための、明確な一連の規則が必要だ。",
+          "english": "We need a clear set of rules whereby everyone is treated fairly.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 124,
+          "japanese": "来週の試験のため、漢字を勉強しておきました。",
+          "english": "I studied my kanji in preparation for next week's exam.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 125,
+          "japanese": "別に彼のために作ったわけではない。",
+          "english": "It’s not like I made this for him.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 126,
+          "japanese": "来年から一人暮らしするために、お金を貯めています。",
+          "english": "I will live alone from next year and so I am saving money.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 127,
+          "japanese": "私の父は東京に行ったため、ここにはいない。",
+          "english": "My father went to Tokyo, so he is not here.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 128,
+          "japanese": "私は血圧が低かったため、倒れそうになった。",
+          "english": "Since my blood pressure was low, I thought I was going to collapse.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 129,
+          "japanese": "今日は暑かったため、私は何もする気にならなかった。",
+          "english": "I didn't feel like doing anything today because it was hot.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9d%e3%81%ae%e7%82%ba-%e3%81%9d%e3%81%ae%e3%81%9f%e3%82%81-sono-tame-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e3%81%a7-node-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e4%b8%8a%e3%81%a7-%e3%81%86%e3%81%88%e3%81%a7-ue-de-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%81%af-ni-wa-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8c%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%a7-ga-kikkake-de-%e3%82%92%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%ab-o-kikkake-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82%e3%81%ae%e3%81%a0%e3%81%8b%e3%82%89-mono-dakara-meaning/"
+      ],
+      "formation": "Verb + ため（に）"
+    },
+    {
+      "id": 16,
+      "slug": "okage-de",
+      "japanese": "おかげで",
+      "romaji": "okage de",
+      "meaning": "thanks to; because of",
+      "level": "N3",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8a%e3%81%8b%e3%81%92%e3%81%a7-okage-de-meaning/",
+      "createdAt": "2026-01-29 10:30:14",
+      "updatedAt": "2026-01-29 10:30:14",
+      "examples": [
+        {
+          "id": 130,
+          "japanese": "彼女のおかげで、私は毎日幸せだ。",
+          "english": "Thanks to her, I am happy everyday.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 131,
+          "japanese": "日本へ来たおかげで、日本語が上手になりました。",
+          "english": "I improved my Japanese because I came to Japan.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 132,
+          "japanese": "先生のおかげでJLPT N3に合格できました。",
+          "english": "Thanks to my teacher, I passed the JLPT N3.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 133,
+          "japanese": "薬を飲んだおかげで、すっかり元気になりました。",
+          "english": "I healed up thanks to taking my medicine.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 134,
+          "japanese": "日本語を習ったおかげで、いい仕事を見つけることができました。",
+          "english": "I was able to find a good job because I learned Japanese.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 135,
+          "japanese": "友達のおかげで、私は今の彼女と出会うことができました。",
+          "english": "Thanks to my friend, I was able to meet my current girlfriend.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 136,
+          "japanese": "とてもいい医者にみてもらったおかげで病気が治りました。",
+          "english": "Thanks to being looked at by a very good doctor, my illness was healed.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 137,
+          "japanese": "今日、皆さんのおかげで私の夢を実現しました。",
+          "english": "Today, thanks to you all my dream became a reality.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9b%e3%81%84%e3%81%a7-sei-de-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8c%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%a7-ga-kikkake-de-%e3%82%92%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%ab-o-kikkake-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9b%e3%81%84%e3%81%8b-sei-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e5%b9%b8%e3%81%84%e3%81%aa%e3%81%93%e3%81%a8%e3%81%ab-saiwai-na-koto-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%af%ef%bd%9e%e3%81%a7%e6%9c%89%e5%90%8d-wa-de-yuumei-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ae%e4%b8%ad%e3%81%a7-no-naka-de-meaning/"
+      ],
+      "formation": "Verb (casual) + おかげで"
+    },
+    {
+      "id": 17,
+      "slug": "sei-de",
+      "japanese": "せいで",
+      "romaji": "sei de",
+      "meaning": "because of (negative)",
+      "level": "N3",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9b%e3%81%84%e3%81%a7-sei-de-meaning/",
+      "createdAt": "2026-01-29 10:30:23",
+      "updatedAt": "2026-01-29 10:30:23",
+      "examples": [
+        {
+          "id": 138,
+          "japanese": "さっきコーヒーを飲んだせいで、なかなか寝られません。",
+          "english": "Because I drank coffee a little while ago, I can't seem to fall asleep.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 139,
+          "japanese": "頭が痛い。疲れたせいかな。",
+          "english": "My head hurts. Maybe it's because I am tired..",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 140,
+          "japanese": "バスが遅れたせいで、授業に遅れてしまった。",
+          "english": "I was late for class because my bus was late.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 141,
+          "japanese": "あなたの失敗を、私のせいにしないでよ！",
+          "english": "Don't blame me for your mistake!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 142,
+          "japanese": "体調が悪かったせいで、試験に集中できなかった。",
+          "english": "As a result of not feeling well, I wasn't able to concentrate on the exam.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 143,
+          "japanese": "バスが遅れたせいで、飛行機に乗れなかった。",
+          "english": "I missed my flight because the bus was late.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 144,
+          "japanese": "食べすぎたせいで、ちょっと太ってしまった。",
+          "english": "I've gained a bit of weight from eating too much.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 145,
+          "japanese": "ちゃんと勉強しなかったせいで、テストは合格できなかった。",
+          "english": "As a result of not studying properly, I wasn't able to pass the test.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8a%e3%81%8b%e3%81%92%e3%81%a7-okage-de-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%af%ef%bd%9e%e3%81%a7%e6%9c%89%e5%90%8d-wa-de-yuumei-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%81%9b%e3%81%ab-kuse-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9b%e3%81%84%e3%81%8b-sei-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8f%e3%81%9b%e3%81%97%e3%81%a6-kuse-shite-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8c%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%a7-ga-kikkake-de-%e3%82%92%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91%e3%81%ab-o-kikkake-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e4%bc%b4%e3%81%a3%e3%81%a6-ni-tomonatte-meaning/"
+      ],
+      "formation": "Verb (casual) + せい（で/に)"
+    },
+    {
+      "id": 18,
+      "slug": "niyotte",
+      "japanese": "によって・による",
+      "romaji": "ni yotte / ni yoru",
+      "meaning": "due to; depending on; by means of",
+      "level": "N3",
+      "category": "reason",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%82%88%e3%81%a3%e3%81%a6-%e3%81%ab%e3%82%88%e3%82%8b-ni-yotte-ni-yoru-meaning/",
+      "createdAt": "2026-01-29 10:30:33",
+      "updatedAt": "2026-01-29 10:30:33",
+      "examples": [
+        {
+          "id": 146,
+          "japanese": "それは場合による。",
+          "english": "That depends on the situation.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 147,
+          "japanese": "人によって考え方が違う。",
+          "english": "Everyone has a different way of thinking.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 148,
+          "japanese": "大雪によって、電車は２時間以上も遅れました。",
+          "english": "Due to the heavy snow, the train was more than 2 hours late.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 149,
+          "japanese": "その薬品は人によっては強い副作用が起こる。",
+          "english": "That medicine has strong side effects depending on the person.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 150,
+          "japanese": "これは有名な作家によって書かれた小説です。",
+          "english": "This is a novel that was written by a famous author.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 151,
+          "japanese": "習慣は国によって異なる。",
+          "english": "Customs differ from one country to another.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 152,
+          "japanese": "私たちは言語によって思想を表現する。",
+          "english": "We express our thoughts by means of languages.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 153,
+          "japanese": "関東地方から北海道にかけて台風による被害が広がっています。",
+          "english": "Damage from the typhoon has spread from the Kanto region to Hokkaido.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 154,
+          "japanese": "その事故は彼の車の運転における不注意によるものであった。",
+          "english": "The accident was due to his careless driving of the car.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 155,
+          "japanese": "増税により、生活は苦しくなる一方だ。",
+          "english": "Tax increases are making life harder.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%82%88%e3%82%8b%e3%81%a8-%e3%81%ab%e3%82%88%e3%82%8c%e3%81%b0-ni-yoru-to-ni-yoreba-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%82%8a-yori-from-time-place/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%81%a4%e3%81%8d-ni-tsuki-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%82%88%e3%82%89%e3%81%9a-ni-yorazu-meaning/"
+      ],
+      "formation": "Noun + によってによりによる"
+    },
+    {
+      "id": 19,
+      "slug": "bakari",
+      "japanese": "ばかり",
+      "romaji": "bakari",
+      "meaning": "only; just; nothing but",
+      "level": "N4",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a-bakari-meaning/",
+      "createdAt": "2026-01-29 12:15:59",
+      "updatedAt": "2026-01-29 12:15:59",
+      "examples": [
+        {
+          "id": 156,
+          "japanese": "娘はテレビばかり見ている。",
+          "english": "My daughter does nothing but watch TV.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 157,
+          "japanese": "彼はお金ばかり考えている。",
+          "english": "He only thinks about money.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 158,
+          "japanese": "甘いものばかり食べると太ります。",
+          "english": "If you just eat sweets you're gonna gain weight.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 159,
+          "japanese": "嘘ばかりつく人が嫌いだ。",
+          "english": "I hate people who always lie.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 160,
+          "japanese": "得るものはなく、失うものばかりだ。",
+          "english": "You have nothing to gain, but everything to lose.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 161,
+          "japanese": "このカフェのお客さんは女性ばかりですね。",
+          "english": "This cafe's customers are all girls.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 162,
+          "japanese": "子どもの頃は体が弱くて病気ばかりしていました。",
+          "english": "I was weak as a child and sick all the time.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/n2-%e3%81%b0%e3%81%8b%e3%82%8a-bakari-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%84%e3%82%8b-te-bakari-iru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9f%e3%81%b0%e3%81%8b%e3%82%8a-ta-bakari-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%8b-bakari-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%a7%e3%81%aa%e3%81%8f-bakari-denaku-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%a7-bakari-de-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%a0-bakari-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%ab-bakari-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%b0%e3%81%8b%e3%82%8a%e3%81%af%e3%81%84%e3%82%89%e3%82%8c%e3%81%aa%e3%81%84-te-bakari-wa-irarenai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%9a%e3%81%8f%e3%82%81-zukume-meaning/"
+      ],
+      "formation": "Noun + ばかり"
+    },
+    {
+      "id": 20,
+      "slug": "demo",
+      "japanese": "でも",
+      "romaji": "demo",
+      "meaning": "but; however; even",
+      "level": "N5",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a7%e3%82%82-demo-meaning/",
+      "createdAt": "2026-01-29 12:16:09",
+      "updatedAt": "2026-01-29 12:16:09",
+      "examples": [
+        {
+          "id": 163,
+          "japanese": "私は魚が好きです。でも肉も好きです。",
+          "english": "I like fish. But I also like meat.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 164,
+          "japanese": "パン屋に行きました。でも、何も買いませんでした。",
+          "english": "I went to the bakery, but didn't buy anything.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 165,
+          "japanese": "動物が好きです。でも、犬が一ばん好きです。",
+          "english": "I like animals. But I love dogs the most.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 166,
+          "japanese": "図書館に行きました。でも、集中できませんでした。",
+          "english": "I went to the library. But I wasn't able to concentrate.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 167,
+          "japanese": "スーパーに行きました。でも、財布を忘れました！",
+          "english": "I went to the grocery store. But I forgot my wallet!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 168,
+          "japanese": "今朝学校に行きました。でも、休みでした。",
+          "english": "I went to school this morning. but it was closed.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 169,
+          "japanese": "日本人ともっと話したいです。でも、私の日本語はあまり上手ではありません。",
+          "english": "I want to speak to Japanese people more. But my Japanese is not so good.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82-temo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%97%e3%81%8b%e3%81%97-shikashi-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%82%82%e3%81%84%e3%81%84%e3%81%a7%e3%81%99%e3%81%8b-temo-ii-desu-ka-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%82-mo-particle-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%91%e3%81%a9-kedo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%91%e3%82%8c%e3%81%a9%e3%82%82-keredo-mo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%af%e3%80%9c%e3%81%8c%ef%bd%9e%e3%81%af-wa-ga-wa-meaning-but-however/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a0%e3%81%91%e3%81%a9-dakedo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%a7%e3%82%82-te-demo-meaning/"
+      ]
+    },
+    {
+      "id": 21,
+      "slug": "nagara",
+      "japanese": "ながら",
+      "romaji": "nagara",
+      "meaning": "while doing; although",
+      "level": "N4",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%8c%e3%82%89-nagara-meaning/",
+      "createdAt": "2026-01-29 12:16:19",
+      "updatedAt": "2026-01-29 12:16:19",
+      "examples": [
+        {
+          "id": 170,
+          "japanese": "話を聞きながらメモします。",
+          "english": "I took notes while listening to the story.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 171,
+          "japanese": "歩きながら話しましょう。",
+          "english": "Let's talk while walking.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 172,
+          "japanese": "テレビを見ながら晩ごはんを食べます。",
+          "english": "I eat dinner while watching TV.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 173,
+          "japanese": "音楽を聞きながら料理します。",
+          "english": "I listen to music while I cook.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 174,
+          "japanese": "勉強をしながら音楽を聞きます。",
+          "english": "I listen to music while I study.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 175,
+          "japanese": "ギターを弾きながら歌えますか。",
+          "english": "Can you sing and play guitar at the same time?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 176,
+          "japanese": "アルバイトをしながら大学で勉強しています。",
+          "english": "I work part time while attending University.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 177,
+          "japanese": "歩きながらタバコを吸ってはいけません。",
+          "english": "You cannot walk and smoke at the same time.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 178,
+          "japanese": "電話しながら車を運転してはいけません。",
+          "english": "You must not talk on the phone while driving a car.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%8c%e3%82%89%e3%82%82-nagara-mo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e6%99%82-%e3%81%a8%e3%81%8d-toki-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e9%96%93-aida-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e9%96%93%e3%81%ab-aida-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e5%90%8c%e6%99%82%e3%81%ab-to-douji-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e4%b8%80%e5%ba%a6%e3%81%ab-ichido-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%8c%e3%82%89%e3%81%ab-%e3%81%aa%e3%81%8c%e3%82%89%e3%81%ae-nagara-ni-nagara-no-meaning/"
+      ],
+      "formation": "Verb ます (stem form) + ながら + [B]"
+    },
+    {
+      "id": 22,
+      "slug": "youni",
+      "japanese": "ように",
+      "romaji": "you ni",
+      "meaning": "so that; in order to; in such a way",
+      "level": "N4",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab-you-ni-meaning/",
+      "createdAt": "2026-01-29 12:16:28",
+      "updatedAt": "2026-01-29 12:16:28",
+      "examples": [
+        {
+          "id": 179,
+          "japanese": "バスに乗り遅れないように早く出ました。",
+          "english": "I left early so I would not be late for the bus.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 180,
+          "japanese": "先生の話を忘れないように、メモしておきます。",
+          "english": "I will take some notes so as to not forget what the teacher said.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 181,
+          "japanese": "単語が覚えられるように、フラッシュカードを作りました。",
+          "english": "I made some flashcards to help me be able to memorize vocabulary.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 182,
+          "japanese": "皆さんに聞こえるようにもっと大きな声で話してください。",
+          "english": "Speak with a louder voice so everyone can hear.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 183,
+          "japanese": "大学に合格出来るように一生懸命勉強しています。",
+          "english": "I'm studying my absolute hardest so that I can be accepted to university.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 184,
+          "japanese": "私は日本の新聞を読めるように、漢字を勉強しています。",
+          "english": "I'm studying kanji so that I can read Japanese newspapers.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 185,
+          "japanese": "彼女は寝坊しないように、アラームをたくさんかけました。",
+          "english": "She set a lot of alarms so that she doesn't sleep in.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 186,
+          "japanese": "いつでも単語が調べられるように、スマホに辞書のアプリをダウンロードしてあります。",
+          "english": "I downloaded a dictionary application so that I can look up vocabulary words at any time.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 187,
+          "japanese": "彼女は勉強中に邪魔されないように、携帯電話の電源を切った。",
+          "english": "She turned off her cellphone so it wouldn’t bother her while studying.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e7%84%b6%e3%82%82-%e3%81%95%e3%82%82-samo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e8%a6%8b%e3%81%88%e3%82%8b-you-ni-mieru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%a8%e3%81%99%e3%82%8b-you-to-suru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%a8%e3%81%97%e3%81%aa%e3%81%84-you-to-shinai-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e3%81%99%e3%82%8b-you-ni-suru-%e3%82%88%e3%81%86%e3%81%ab%e3%81%97%e3%81%a6%e3%81%84%e3%82%8b-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e3%81%aa%e3%82%8b-you-ni-naru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab-%e3%82%88%e3%81%86%e3%81%aa-you-ni-na-meaning/"
+      ],
+      "formation": "Verb (dictionary form) + ように"
+    },
+    {
+      "id": 23,
+      "slug": "made",
+      "japanese": "まで",
+      "romaji": "made",
+      "meaning": "until; as far as; to the extent",
+      "level": "N5",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7-made-meaning/",
+      "createdAt": "2026-01-29 12:16:47",
+      "updatedAt": "2026-01-29 12:16:47",
+      "examples": [
+        {
+          "id": 188,
+          "japanese": "昨日までお休みでした。",
+          "english": "I was on vacation until yesterday.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 189,
+          "japanese": "ここからそこまでは遠いですよ。",
+          "english": "That's really far from here!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 190,
+          "japanese": "駅まで行きたいんですが、どう行ったらいいですか。",
+          "english": "How can I get to the station?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 191,
+          "japanese": "最後までがんばってね！",
+          "english": "Do your best all the way until the end!",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 192,
+          "japanese": "家まで車で送ります。",
+          "english": "I'll take you home by car.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 193,
+          "japanese": "朝から夜までずっとかんじを勉強しました。",
+          "english": "I studied kanji all day from morning until night.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 194,
+          "japanese": "お店は何時から何時まで開いていますか？",
+          "english": "What are the shop's opening hours?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 195,
+          "japanese": "先生、何時まで学校にいらっしゃいますか。",
+          "english": "Teacher, until what time will you be at school?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 196,
+          "japanese": "昼ごはんまでにレポートを書いてしまいました。",
+          "english": "I kept writing my report until lunch.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 197,
+          "japanese": "雨が降っているよ。駅まで送ってあげようか？",
+          "english": "It's raining.. Shall I give you a lift to the station?",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%81%ab-made-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e5%89%8d%e3%81%ab-%e3%81%be%e3%81%88%e3%81%ab-mae-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e5%be%8c%e3%81%a7-%e3%81%82%e3%81%a8%e3%81%a7-ato-de-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%be%e3%81%a7-te-made-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%aa%e3%81%84%e3%81%be%e3%81%a7%e3%82%82-nai-made-mo-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%81%a0-%e3%81%be%e3%81%a7%e3%81%ae%e3%81%93%e3%81%a8%e3%81%a0-made-da-made-no-koto-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%82%82%e3%81%aa%e3%81%84-%e3%81%be%e3%81%a7%e3%82%82%e3%81%aa%e3%81%8f-made-mo-nai-made-mo-naku-meaning/"
+      ],
+      "formation": "Noun + まで"
+    },
+    {
+      "id": 24,
+      "slug": "madeni",
+      "japanese": "までに",
+      "romaji": "made ni",
+      "meaning": "by (deadline); by the time",
+      "level": "N4",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%81%ab-made-ni-meaning/",
+      "createdAt": "2026-01-29 12:16:59",
+      "updatedAt": "2026-01-29 12:16:59",
+      "examples": [
+        {
+          "id": 198,
+          "japanese": "8時までに来てください。",
+          "english": "Please come by no later than 8AM.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 199,
+          "japanese": "この本、来週までに返してくださいね。",
+          "english": "Please return this book by next week.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 200,
+          "japanese": "レポートは金曜日までに出してください。",
+          "english": "Please have the report submitted by Friday.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 201,
+          "japanese": "いつまでに必要ですか。",
+          "english": "When do you need this by?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 202,
+          "japanese": "参加したい人は、明日までに連絡ください。",
+          "english": "For anyone who wants to participate, please let us know by tomorrow.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 203,
+          "japanese": "それはいつまでに終わりますか？",
+          "english": "When will that finish by?",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 204,
+          "japanese": "死ぬまでに１度は海外へ行ってみたいです。",
+          "english": "Before I die I want to try going abroad.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 205,
+          "japanese": "たいはんの日本人女性は３０歳になるまでに結婚したいです。",
+          "english": "Most Japanese girls want to get married before turning 30.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7-made-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e9%80%9a%e3%81%99-%e3%81%a8%e3%81%8a%e3%81%99-toosu-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%be%e3%81%a7-te-made-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%81%a0-%e3%81%be%e3%81%a7%e3%81%ae%e3%81%93%e3%81%a8%e3%81%a0-made-da-made-no-koto-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%be%e3%81%a7%e3%82%82%e3%81%aa%e3%81%84-%e3%81%be%e3%81%a7%e3%82%82%e3%81%aa%e3%81%8f-made-mo-nai-made-mo-naku-meaning/"
+      ],
+      "formation": "Verb (dictionary form) + までに"
+    },
+    {
+      "id": 25,
+      "slug": "youna",
+      "japanese": "ような",
+      "romaji": "you na",
+      "meaning": "like; such as; similar to",
+      "level": "N4",
+      "category": "lexical",
+      "detailUrl": "https://jlptsensei.com/learn-japanese-grammar/ように-ような-you-ni-na-meaning/",
+      "createdAt": "2026-01-29 12:18:05",
+      "updatedAt": "2026-01-29 12:18:05",
+      "examples": [
+        {
+          "id": 206,
+          "japanese": "犬のように働いている。",
+          "english": "I'm working like a dog",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 207,
+          "japanese": "その二人は燃えるような愛がありますね。",
+          "english": "Those two seem to have a smoldering-like love for each other.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 208,
+          "japanese": "彼は家族のためだけに生きていたように思える。",
+          "english": "He seemed to live only for his family in my opinion.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 209,
+          "japanese": "見えるように、このパソコンはとても古いですがまだ使われている。",
+          "english": "As you can see, this computer is very old, but it's still being used.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 210,
+          "japanese": "私を子どものように扱わないで。",
+          "english": "Don't treat me as a kid.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 211,
+          "japanese": "日本語で新聞が読めるように、漢字の勉強をしています。",
+          "english": "I'm studying kanji so that I can read the newspaper in Japanese.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 212,
+          "japanese": "これはお茶のような味だ。",
+          "english": "This tastes like tea.",
+          "source": "jlptsensei.com"
+        },
+        {
+          "id": 213,
+          "japanese": "学生達はあの先生が山のような宿題を出すので大嫌いである。",
+          "english": "They hate that teacher because he gives them a mountain of homework.",
+          "source": "jlptsensei.com"
+        }
+      ],
+      "relatedGrammarUrls": [
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e3%81%99%e3%82%8b-you-ni-suru-%e3%82%88%e3%81%86%e3%81%ab%e3%81%97%e3%81%a6%e3%81%84%e3%82%8b-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e3%81%aa%e3%82%8b-you-ni-naru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%a0-you-da-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%bf%e3%81%9f%e3%81%84%e3%81%aa-mitai-na-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a8%e3%81%bf%e3%81%88%e3%81%a6-miete-%e3%81%a8%e3%81%bf%e3%81%88%e3%82%8b-to-mieru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab-you-ni-meaning-in-order-to/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%ab%e8%a6%8b%e3%81%88%e3%82%8b-you-ni-mieru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%aa%e6%b0%97%e3%81%8c%e3%81%99%e3%82%8b-you-na-ki-ga-suru-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%b5%e3%81%86%e3%81%ab-fuu-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%81%ae%e3%82%88%e3%81%86%e3%81%ab-ka-no-you-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%81%93%e3%81%a8%e3%81%ae%e3%81%aa%e3%81%84%e3%82%88%e3%81%86%e3%81%ab-koto-no-nai-you-ni-meaning/",
+        "https://jlptsensei.com/learn-japanese-grammar/%e3%82%88%e3%81%86%e3%81%a8%ef%bd%9e%e3%81%be%e3%81%84%e3%81%a8-%e3%82%88%e3%81%86%e3%81%8c%ef%bd%9e%e3%81%be%e3%81%84%e3%81%8c-you-to-mai-to-you-ga-mai-ga-meaning/"
+      ],
+      "formation": "Verb (casual) + ようにような"
+    }
+  ],
+  "lexicalSimilarities": [
+    {
+      "grammarIdA": 5,
+      "grammarIdB": 20
+    },
+    {
+      "grammarIdA": 23,
+      "grammarIdB": 24
+    }
+  ]
+}

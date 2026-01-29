@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+*.log
+
+# SQLite WAL files
+*.db-shm
+*.db-wal
+
+# Temp files
+*.tmp
