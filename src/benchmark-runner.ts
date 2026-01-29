@@ -124,7 +124,11 @@ export async function runBenchmark(options: RunBenchmarkOptions): Promise<Benchm
 
     spinner.succeed(`Benchmark complete. Run ID: ${runId}`);
     return { runId, metrics, evaluations };
+  } catch (error) {
+    spinner.fail("Benchmark failed");
+    throw error;
   } finally {
     benchDb.close();
+    // Neon serverless client auto-closes; no explicit teardown needed
   }
 }

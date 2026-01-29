@@ -54,39 +54,50 @@ const SEED_QUERIES: SeedQuery[] = [
   },
 ];
 
-export function seedBenchmarkQueries(): void {
+export function seedBenchmarkQueries(options: { force?: boolean } = {}): void {
   const db = openBenchmarkDatabase();
 
-  const insertQuery = db.prepare(`
-    INSERT INTO benchmark_queries (query_text, query_language, target_language, difficulty, is_ranked)
-    VALUES (?, ?, ?, ?, ?)
-  `);
-
-  const insertExpected = db.prepare(`
-    INSERT INTO benchmark_expected (query_id, grammar_point_id, relevance_score)
-    VALUES (?, ?, ?)
-  `);
-
-  db.transaction(() => {
-    for (const q of SEED_QUERIES) {
-      const result = insertQuery.run(
-        q.queryText,
-        q.queryLanguage,
-        q.targetLanguage,
-        q.difficulty,
-        q.isRanked ? 1 : 0
-      );
-
-      const queryId = Number(result.lastInsertRowid);
-
-      for (const exp of q.expected) {
-        insertExpected.run(queryId, exp.grammarPointId, exp.relevance ?? null);
-      }
+  try {
+    // Check for existing data—idempotency matters
+    const existing = db.prepare("SELECT COUNT(*) as count FROM benchmark_queries").get() as { count: number };
+    if (existing.count > 0 && !options.force) {
+      console.log(`Found ${existing.count} existing queries. Use --force to re-seed (will add duplicates).`);
+      db.close();
+      return;
     }
-  })();
 
-  console.log(`Seeded ${SEED_QUERIES.length} benchmark queries`);
-  db.close();
+    const insertQuery = db.prepare(`
+      INSERT INTO benchmark_queries (query_text, query_language, target_language, difficulty, is_ranked)
+      VALUES (?, ?, ?, ?, ?)
+    `);
+
+    const insertExpected = db.prepare(`
+      INSERT INTO benchmark_expected (query_id, grammar_point_id, relevance_score)
+      VALUES (?, ?, ?)
+    `);
+
+    db.transaction(() => {
+      for (const q of SEED_QUERIES) {
+        const result = insertQuery.run(
+          q.queryText,
+          q.queryLanguage,
+          q.targetLanguage,
+          q.difficulty,
+          q.isRanked ? 1 : 0
+        );
+
+        const queryId = Number(result.lastInsertRowid);
+
+        for (const exp of q.expected) {
+          insertExpected.run(queryId, exp.grammarPointId, exp.relevance ?? null);
+        }
+      }
+    })();
+
+    console.log(`Seeded ${SEED_QUERIES.length} benchmark queries`);
+  } finally {
+    db.close();
+  }
 }
 
 // Run if executed directly
