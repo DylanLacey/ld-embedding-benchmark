@@ -51,6 +51,13 @@ export class HuggingFaceEmbedding implements EmbeddingModel {
       model: this.hfModelId,
       inputs: formattedText,
     });
+    // featureExtraction returns number[] | number[][] | number[][][] depending on model.
+    // For single input, we expect number[]. Validate to catch shape mismatches early.
+    if (!Array.isArray(result) || typeof result[0] !== "number") {
+      throw new Error(
+        `Unexpected embedding shape from ${this.hfModelId}. Expected number[], got nested structure.`
+      );
+    }
     return result as number[];
   }
 
@@ -63,6 +70,16 @@ export class HuggingFaceEmbedding implements EmbeddingModel {
       model: this.hfModelId,
       inputs: formattedTexts,
     });
+    // For batch input, we expect number[][]. Validate the shape.
+    if (
+      !Array.isArray(results) ||
+      !Array.isArray(results[0]) ||
+      typeof results[0]?.[0] !== "number"
+    ) {
+      throw new Error(
+        `Unexpected embedding shape from ${this.hfModelId}. Expected number[][], got unexpected structure.`
+      );
+    }
     return results as number[][];
   }
 }

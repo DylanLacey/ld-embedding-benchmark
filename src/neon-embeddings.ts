@@ -40,6 +40,11 @@ export async function storeEmbeddingsBatch(
 	modelId: string,
 	embeddings: number[][],
 ): Promise<void> {
+	if (sources.length !== embeddings.length) {
+		throw new Error(
+			`Mismatched arrays: ${sources.length} sources but ${embeddings.length} embeddings`,
+		);
+	}
 	for (let i = 0; i < sources.length; i++) {
 		const source = sources[i];
 		const embedding = embeddings[i];
@@ -73,7 +78,8 @@ export async function searchSimilar(
 	const embeddingStr = `[${queryEmbedding.join(",")}]`;
 
 	// Get best match per grammar point via DISTINCT ON
-	const results = (await sql`
+	// Neon returns Record<string, unknown>[], so we validate shape at runtime.
+	const rawResults = await sql`
     SELECT DISTINCT ON (gp.id)
       gp.id as grammar_point_id,
       gp.japanese,
@@ -85,7 +91,15 @@ export async function searchSimilar(
     JOIN grammar_points gp ON gp.id = ge.grammar_point_id
     WHERE ge.model_id = ${modelId}
     ORDER BY gp.id, similarity DESC
-  `) as SearchResult[];
+  `;
+	const results: SearchResult[] = (rawResults as Array<Record<string, unknown>>).map((row) => ({
+		grammarPointId: Number(row.grammar_point_id),
+		japanese: String(row.japanese ?? ""),
+		meaning: String(row.meaning ?? ""),
+		level: String(row.level ?? ""),
+		sourceType: String(row.source_type ?? ""),
+		similarity: Number(row.similarity ?? 0),
+	}));
 
 	// DISTINCT ON ordered by gp.id; we need final sort by similarity
 	return results
@@ -103,9 +117,9 @@ export async function getEmbeddingCount(
 ): Promise<number> {
 	const results = (await sql`
     SELECT COUNT(*) as count FROM grammar_embeddings WHERE model_id = ${modelId}
-  `) as { count: string | number }[];
+  `) as Array<Record<string, unknown>>;
 	const result = results[0];
-	return result ? Number(result.count) : 0;
+	return result ? Number(result.count ?? 0) : 0;
 }
 
 /**
