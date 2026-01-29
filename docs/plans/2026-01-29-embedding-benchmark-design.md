@@ -45,12 +45,11 @@ This benchmark determines which embedding models best bridge the semantic gap be
 │          ┌────────────────┘                    └────────────────┐      │
 │          ▼                                                      ▼      │
 │   ┌─────────────────┐                              ┌─────────────────┐ │
-│   │ SQLite          │                              │ Neon (pgvector) │ │
+│   │ SQLite          │                              │ Neon (branched) │ │
 │   │                 │                              │                 │ │
-│   │ • grammar_pts   │   grammar sync               │ • grammar_      │ │
-│   │ • examples      │ ─────────────────────────▶   │   embeddings    │ │
-│   │ • benchmark_*   │                              │                 │ │
-│   │ • runs/metrics  │                              │                 │ │
+│   │ • benchmark_*   │                              │ • grammar_pts   │ │
+│   │ • runs/metrics  │                              │ • examples      │ │
+│   │ • models        │                              │ • grammar_embed │ │
 │   └─────────────────┘                              └─────────────────┘ │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -58,20 +57,41 @@ This benchmark determines which embedding models best bridge the semantic gap be
 
 ### Storage Split Rationale
 
-**SQLite (local):** Fast iteration on test cases, no network latency for CRUD, version-controllable schema. Stores grammar points, examples, benchmark queries, runs, and metrics.
+**SQLite (local):** Benchmark harness only — test queries, expected results, runs, metrics. Fast iteration, no network latency for authoring test cases.
 
-**Neon/pgvector (remote):** Vector similarity search that mirrors production infrastructure. Stores grammar embeddings only.
+**Neon/pgvector (branched):** Grammar data + embeddings. Branches enable isolated experiments (ablation studies, model comparisons, inventory slices) without data duplication. Vector search JOINs to grammar_points in single query.
+
+See `docs/neon-branching-strategy.md` for branch workflows.
 
 ## Data Model
 
-### Existing Tables (SQLite)
+### Grammar Tables (Neon — main branch)
 
 ```sql
-grammar_points    -- id, slug, japanese, meaning, level, category, ...
-examples          -- id, grammar_point_id, japanese, english, source
+CREATE TABLE grammar_points (
+  id SERIAL PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  japanese TEXT NOT NULL,
+  romaji TEXT,
+  meaning TEXT NOT NULL,
+  level TEXT NOT NULL,           -- 'N1', 'N2', 'N3', 'N4', 'N5'
+  category TEXT NOT NULL,
+  detail_url TEXT,
+  formation TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE examples (
+  id SERIAL PRIMARY KEY,
+  grammar_point_id INTEGER NOT NULL REFERENCES grammar_points(id),
+  japanese TEXT NOT NULL,
+  english TEXT NOT NULL,
+  source TEXT
+);
 ```
 
-### New Benchmark Tables (SQLite)
+### Benchmark Tables (SQLite — local)
 
 ```sql
 CREATE TABLE benchmark_queries (
@@ -88,7 +108,7 @@ CREATE TABLE benchmark_queries (
 CREATE TABLE benchmark_expected (
   id INTEGER PRIMARY KEY,
   query_id INTEGER NOT NULL REFERENCES benchmark_queries(id),
-  grammar_point_id INTEGER NOT NULL REFERENCES grammar_points(id),
+  grammar_point_id INTEGER NOT NULL, -- references Neon grammar_points.id (stable across branches)
   relevance_score INTEGER,           -- 1-3 for ranked queries, NULL for unranked
   UNIQUE(query_id, grammar_point_id)
 );
@@ -105,6 +125,7 @@ CREATE TABLE embedding_models (
 CREATE TABLE benchmark_runs (
   id INTEGER PRIMARY KEY,
   model_id INTEGER NOT NULL REFERENCES embedding_models(id),
+  branch_name TEXT NOT NULL,         -- Neon branch used for this run
   run_at TEXT DEFAULT CURRENT_TIMESTAMP,
   latency_avg_ms REAL
 );
@@ -118,14 +139,16 @@ CREATE TABLE benchmark_metrics (
 );
 ```
 
-### Vector Storage (Neon/pgvector)
+### Embedding Storage (Neon — experiment branches)
+
+Embeddings live on branches forked from main. Each branch inherits grammar_points/examples via copy-on-write.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
 
 CREATE TABLE grammar_embeddings (
   id SERIAL PRIMARY KEY,
-  grammar_point_id INTEGER NOT NULL,
+  grammar_point_id INTEGER NOT NULL REFERENCES grammar_points(id),
   model_id INTEGER NOT NULL,
   source_type TEXT NOT NULL,         -- 'name_meaning', 'example', 'formation'
   source_text TEXT NOT NULL,
@@ -256,24 +279,27 @@ All four levels included in benchmark:
 ### Commands
 
 ```
-embedding4ld embed <model>
-  - Embeds all grammar constructs for the given model
-  - Stores vectors in Neon
-  - Skips if embeddings already exist (--force to re-embed)
+embedding4ld embed <model> [--branch <name>] [--force]
+  - Creates branch if needed, embeds all grammar constructs
+  - Defaults to branch: embed/<model>
+  - --force re-embeds even if vectors exist
 
-embedding4ld benchmark <model>
+embedding4ld benchmark <model> [--branch <name>]
   - Runs all benchmark queries against the model
   - Computes and stores metrics
   - Outputs summary to terminal
 
-embedding4ld compare [model1] [model2] ...
-  - Compares metrics across models (or all if none specified)
+embedding4ld compare [--branches <b1>,<b2>,...] [model1] [model2]
+  - Compares metrics across models/branches
   - Tabular output: model × metric
 
 embedding4ld list-models
   - Shows registered models and which have embeddings
 
-embedding4ld list-runs [--model <model>]
+embedding4ld list-branches
+  - Shows Neon branches and their purpose
+
+embedding4ld list-runs [--model <model>] [--branch <name>]
   - Shows historical benchmark runs
 ```
 
@@ -296,7 +322,7 @@ Charmbracelet retrofuturist aesthetic using `gum` and `lipgloss`:
 /queries                → List/filter benchmark queries
 /queries/new            → Create new test query
 /queries/[id]           → Edit query + manage expected grammar mappings
-/grammar                → Browse grammar inventory (read-only)
+/grammar                → Browse grammar inventory (from Neon main branch)
 /grammar/[id]           → View grammar point + examples
 /runs                   → Historical benchmark runs
 /runs/[id]              → Drill into run: per-query results, misses
@@ -306,7 +332,8 @@ Charmbracelet retrofuturist aesthetic using `gum` and `lipgloss`:
 
 - SvelteKit + Svelte 5
 - Tailwind CSS v4
-- `better-sqlite3` (server-side only)
+- `better-sqlite3` for benchmark data (server-side)
+- Neon client for grammar data (server-side)
 - No auth — local development tool
 
 ### Key Views
@@ -318,10 +345,15 @@ Charmbracelet retrofuturist aesthetic using `gum` and `lipgloss`:
 ## Environment Variables
 
 ```
+# Embedding providers
 HF_TOKEN=               # HuggingFace API token
 OPENAI_API_KEY=         # OpenAI API key
 COHERE_API_KEY=         # Cohere API key
-DATABASE_URL=           # Neon postgres connection string
+
+# Neon
+NEON_PROJECT_ID=        # Neon project ID (for branch management)
+NEON_API_KEY=           # Neon API key (for branch management)
+DATABASE_URL=           # Main branch connection string (used as template for branch URLs)
 ```
 
 ## Future Extensions (Parked)
