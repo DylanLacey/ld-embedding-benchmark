@@ -43,8 +43,12 @@ export async function migrateGrammarToNeon(): Promise<void> {
 				RETURNING id
 			`;
 
-			const rows = result as Array<{ id: number }>;
-			const grammarId = rows[0]?.id;
+			// The Neon serverless client returns a union type; we expect an array of records
+			// from RETURNING. Runtime validation guards against schema mismatches.
+			const rows = result as unknown as Array<Record<string, unknown>>;
+			const firstRow = rows[0];
+			const grammarId =
+				firstRow && typeof firstRow.id === "number" ? firstRow.id : undefined;
 			if (grammarId === undefined) {
 				throw new Error(`Failed to upsert grammar point: ${gp.slug}`);
 			}
