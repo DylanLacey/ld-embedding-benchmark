@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import * as grammarSchema from "./schema/grammar";
 import * as benchmarkSchema from "./schema/benchmark";
 
-const DATA_DIR = resolve(import.meta.dirname, "../../../../../data");
+const DATA_DIR = resolve(import.meta.dirname, "../../../../../../data");
 
 const grammarSqlite = new Database(
 	process.env.GRAMMAR_DB_PATH ?? resolve(DATA_DIR, "grammar.db"),
