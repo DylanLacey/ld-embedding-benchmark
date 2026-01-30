@@ -9,12 +9,27 @@ import {
 	deleteEmbeddings,
 } from "./neon-embeddings.js";
 import type { GrammarEmbeddingSource } from "./neon-embeddings.js";
+import type { Config } from "./config/index.js";
 import ora from "ora";
 
+/**
+ * Options for embedding grammar constructs.
+ */
 export interface EmbedOptions {
+	/** The embedding model to use (e.g., "multilingual-e5-large") */
 	modelId: string;
+
+	/** Optional branch URL for non-main branches */
 	branchUrl?: string;
+
+	/** Re-embed even if vectors already exist */
 	force?: boolean;
+
+	/**
+	 * Configuration containing credentials.
+	 * Used for database URL and embedding provider tokens.
+	 */
+	config?: Config;
 }
 
 interface EmbedResult {
@@ -26,15 +41,24 @@ interface EmbedResult {
  * Embeds all grammar constructs into vector space.
  * Each grammar point contributes multiple vectors: name+meaning, formation, and examples.
  * Think of it as giving each grammar point a constellation of semantic coordinates.
+ *
+ * @param options - Embedding options including model ID and config
+ * @returns Counts of embedded and skipped vectors
  */
 export async function embedGrammarConstructs(
 	options: EmbedOptions,
 ): Promise<EmbedResult> {
-	const { modelId, branchUrl, force } = options;
+	const { modelId, branchUrl, force, config } = options;
 	const spinner = ora("Initialising...").start();
 
-	const sql = createNeonClient(branchUrl);
-	const model = createModelInstance({ modelId });
+	// Use branchUrl if provided, otherwise fall back to config's databaseUrl
+	const sql = createNeonClient(branchUrl ?? config?.databaseUrl);
+
+	// Create model instance, passing config for API tokens if provided
+	const model = createModelInstance({
+		modelId,
+		...(config && { config }),
+	});
 
 	try {
 		// Setup embeddings schema with correct dimensions

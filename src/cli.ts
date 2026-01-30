@@ -155,7 +155,11 @@ program
 	.description("Embed all grammar constructs for a model")
 	.option("-b, --branch <name>", "Neon branch name", "main")
 	.option("-f, --force", "Re-embed even if vectors exist")
-	.action(async (modelId: string, opts) => {
+	.action(async (modelId: string, opts, cmd) => {
+		// Load config with CLI overrides from global options
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+
 		// Resolve branch URL if not on main
 		const branchUrl =
 			opts.branch && opts.branch !== "main"
@@ -164,6 +168,7 @@ program
 
 		const result = await embedGrammarConstructs({
 			modelId,
+			config,
 			...(branchUrl && { branchUrl }),
 			force: opts.force,
 		});

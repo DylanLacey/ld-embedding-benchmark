@@ -2,7 +2,6 @@
 // HuggingFace Inference API—where the polyglot models dwell
 import { HfInference } from "@huggingface/inference";
 import type { EmbeddingModel } from "./types.js";
-import { env, validateEnv } from "../config.js";
 
 // Map friendly model IDs to their HuggingFace Hub paths
 const HF_MODEL_MAP: Record<string, string> = {
@@ -13,6 +12,12 @@ const HF_MODEL_MAP: Record<string, string> = {
   "BGE-M3": "BAAI/bge-m3",
 };
 
+/**
+ * HuggingFace Inference API embedding provider.
+ *
+ * Supports asymmetric models (e5, BGE) that use different prefixes
+ * for queries vs documents—a subtle but crucial distinction.
+ */
 export class HuggingFaceEmbedding implements EmbeddingModel {
   readonly provider = "huggingface";
   readonly modelId: string;
@@ -22,13 +27,33 @@ export class HuggingFaceEmbedding implements EmbeddingModel {
   private hfModelId: string;
   private supportsAsymmetric: boolean;
 
-  constructor(modelId: string, dimensions: number, supportsAsymmetric = false) {
-    validateEnv(["hfToken"]);
+  /**
+   * Creates a HuggingFace embedding instance.
+   *
+   * @param modelId - The model identifier (e.g., "multilingual-e5-large")
+   * @param dimensions - The embedding dimension count
+   * @param supportsAsymmetric - Whether the model uses query/document prefixes
+   * @param token - HuggingFace API token. If not provided, reads from HF_TOKEN env var.
+   */
+  constructor(
+    modelId: string,
+    dimensions: number,
+    supportsAsymmetric = false,
+    token?: string,
+  ) {
+    // Resolve token: parameter > env var > error
+    const resolvedToken = token ?? process.env.HF_TOKEN;
+    if (!resolvedToken) {
+      throw new Error(
+        "HuggingFace token required. Provide via config, --hf-token flag, or HF_TOKEN env var.",
+      );
+    }
+
     this.modelId = modelId;
     this.dimensions = dimensions;
     this.supportsAsymmetric = supportsAsymmetric;
     this.hfModelId = HF_MODEL_MAP[modelId] ?? modelId;
-    this.hf = new HfInference(env.hfToken);
+    this.hf = new HfInference(resolvedToken);
   }
 
   /**
