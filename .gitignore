@@ -9,3 +9,6 @@ dist/
 
 # Temp files
 *.tmp
+
+# Git worktrees
+.worktrees/
