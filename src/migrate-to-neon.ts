@@ -2,17 +2,33 @@
 import { createNeonClient } from "./neon.js";
 import { setupGrammarSchema } from "./neon-schema.js";
 import { openDatabase, getAllGrammarPoints } from "./db.js";
+import type { Config } from "./config/index.js";
 import ora from "ora";
+
+/**
+ * Options for migration.
+ */
+export interface MigrateOptions {
+  /**
+   * Configuration containing credentials.
+   * Used for database URL.
+   */
+  config?: Config;
+}
 
 /**
  * Migrates grammar data from local SQLite to Neon Postgres.
  * Uses upsert semantics — run it twice and nothing explodes.
  * (Well, probably. No promises about the third time.)
+ *
+ * @param options - Optional migration options including config
  */
-export async function migrateGrammarToNeon(): Promise<void> {
+export async function migrateGrammarToNeon(options: MigrateOptions = {}): Promise<void> {
+	const { config } = options;
 	const spinner = ora("Connecting to Neon...").start();
 
-	const sql = createNeonClient();
+	// Use config's databaseUrl if provided
+	const sql = createNeonClient(config?.databaseUrl);
 	const localDb = openDatabase();
 
 	try {

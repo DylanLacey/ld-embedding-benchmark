@@ -143,8 +143,12 @@ branchCmd
 program
 	.command("migrate")
 	.description("Migrate grammar data from SQLite to Neon")
-	.action(async () => {
-		await migrateGrammarToNeon();
+	.action(async (_opts, cmd) => {
+		// Load config with CLI overrides from global options
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+
+		await migrateGrammarToNeon({ config });
 	});
 
 // ─────────────────────────────────────────────────────────────
@@ -186,7 +190,11 @@ program
 	.command("benchmark <model>")
 	.description("Run benchmark queries against a model")
 	.option("-b, --branch <name>", "Neon branch name", "main")
-	.action(async (modelId: string, opts) => {
+	.action(async (modelId: string, opts, cmd) => {
+		// Load config with CLI overrides from global options
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+
 		// Resolve branch URL if not on main
 		const branchUrl =
 			opts.branch && opts.branch !== "main"
@@ -195,6 +203,7 @@ program
 
 		const result = await runBenchmark({
 			modelId,
+			config,
 			...(branchUrl && { branchUrl }),
 			branchName: opts.branch,
 		});

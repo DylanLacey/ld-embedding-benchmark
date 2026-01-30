@@ -5,12 +5,27 @@ import { openBenchmarkDatabase } from "./benchmark-db.js";
 import { createModelInstance } from "./embeddings/index.js";
 import { searchSimilar } from "./neon-embeddings.js";
 import { computeAllMetrics, type QueryEvaluation } from "./metrics.js";
+import type { Config } from "./config/index.js";
 import ora from "ora";
 
+/**
+ * Options for running a benchmark.
+ */
 export interface RunBenchmarkOptions {
+  /** The embedding model to benchmark */
   modelId: string;
+
+  /** Optional branch URL for non-main branches */
   branchUrl?: string;
+
+  /** Branch name for labelling results */
   branchName: string;
+
+  /**
+   * Configuration containing credentials.
+   * Used for database URL and embedding provider tokens.
+   */
+  config?: Config;
 }
 
 export interface BenchmarkResult {
@@ -19,13 +34,26 @@ export interface BenchmarkResult {
   evaluations: QueryEvaluation[];
 }
 
+/**
+ * Runs a benchmark, evaluating how well an embedding model retrieves
+ * relevant grammar points for a set of test queries.
+ *
+ * @param options - Benchmark options including model ID and config
+ * @returns Benchmark results with metrics and individual evaluations
+ */
 export async function runBenchmark(options: RunBenchmarkOptions): Promise<BenchmarkResult> {
-  const { modelId, branchUrl, branchName } = options;
+  const { modelId, branchUrl, branchName, config } = options;
   const spinner = ora("Initialising benchmark...").start();
 
-  const sql = createNeonClient(branchUrl);
+  // Use branchUrl if provided, otherwise fall back to config's databaseUrl
+  const sql = createNeonClient(branchUrl ?? config?.databaseUrl);
   const benchDb = openBenchmarkDatabase();
-  const model = createModelInstance({ modelId });
+
+  // Create model instance, passing config for API tokens if provided
+  const model = createModelInstance({
+    modelId,
+    ...(config && { config }),
+  });
 
   try {
     // Get or create model record
