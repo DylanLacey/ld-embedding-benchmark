@@ -1,23 +1,23 @@
 <script lang="ts">
-  type Level = { id: number; code: string; name: string };
-  type GrammarPoint = {
-    id?: number;
-    slug?: string;
-    japanese?: string;
-    romaji?: string;
-    meaning?: string;
-    levelId?: number | null;
-    category?: string | null;
-    formation?: string | null;
-  };
+type Level = { id: number; code: string; name: string };
+type GrammarPoint = {
+	id?: number;
+	slug?: string;
+	japanese?: string;
+	romaji?: string;
+	meaning?: string;
+	levelId?: number | null;
+	category?: string | null;
+	formation?: string | null;
+};
 
-  interface Props {
-    point?: GrammarPoint;
-    levels: Level[];
-    action?: string;
-  }
+interface Props {
+	point?: GrammarPoint;
+	levels: Level[];
+	action?: string;
+}
 
-  let { point = {}, levels, action = '?/save' }: Props = $props();
+let { point = {}, levels, action = "?/save" }: Props = $props();
 </script>
 
 <form method="POST" {action} class="space-y-4 max-w-2xl">

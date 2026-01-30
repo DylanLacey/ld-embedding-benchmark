@@ -1,5 +1,5 @@
-import { grammarDb, benchmarkDb, grammarPoints, benchmarkQueries } from "$lib/server/db";
 import { count } from "drizzle-orm";
+import { benchmarkDb, benchmarkQueries, grammarDb, grammarPoints } from "$lib/server/db";
 
 export async function load() {
 	const [grammarCount] = grammarDb.select({ count: count() }).from(grammarPoints).all();

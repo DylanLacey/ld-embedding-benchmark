@@ -1,7 +1,7 @@
 <script lang="ts">
-	import GrammarForm from '$lib/components/grammar/GrammarForm.svelte';
+import GrammarForm from "$lib/components/grammar/GrammarForm.svelte";
 
-	let { data } = $props();
+let { data } = $props();
 </script>
 
 <div class="flex justify-between items-center mb-6">
