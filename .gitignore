@@ -12,3 +12,8 @@ dist/
 
 # Git worktrees
 .worktrees/
+
+# DVC
+/data/sets/**
+!/data/sets/.gitkeep
+*.dvc.lock

@@ -46,7 +46,36 @@ embedding4ld destroy                           # Delete Neon project
 │ (queries, runs, │     │ embed/<model>/                     │
 │  metrics)       │     │ └── grammar_embeddings (vectors)   │
 └─────────────────┘     └────────────────────────────────────┘
+
+┌─────────────────┐     ┌────────────────────────────────────┐
+│  data/sets/     │────▶│     Wasabi (s3://e4ld-data)        │
+│  (DVC-tracked)  │     │     ap-southeast-2 (Sydney)        │
+└─────────────────┘     └────────────────────────────────────┘
 ```
+
+## Dataset Management (DVC)
+
+Datasets in `data/sets/` are tracked with DVC and stored on Wasabi S3-compatible storage.
+
+```bash
+# Authenticate (export from .env or set directly)
+export AWS_ACCESS_KEY_ID="$WASABI_ACCESS_KEY"
+export AWS_SECRET_ACCESS_KEY="$WASABI_SECRET_KEY"
+
+# Pull datasets
+dvc pull
+
+# Track a new dataset
+dvc add data/sets/my-dataset.parquet
+git add data/sets/my-dataset.parquet.dvc data/sets/.gitignore
+git commit -m "feat: add my-dataset"
+dvc push
+
+# Check remote status
+dvc status --remote
+```
+
+**Remote**: `s3://e4ld-data/dvc-cache` on Wasabi ap-southeast-2 (Sydney)
 
 **Branching strategy**: Main branch holds canonical grammar data without embeddings. Each `embed/<model>` branch forks from main and stores that model's vectors. Ablation experiments (`ablation/`, `dims/`, `inventory/`) fork from embed branches. See `docs/neon-branching-strategy.md` for workflows.
 
@@ -85,6 +114,13 @@ Priority order (highest wins): CLI flags → environment variables → config fi
 | `hfToken` | `HF_TOKEN` | `--hf-token` |
 | `openaiApiKey` | `OPENAI_API_KEY` | `--openai-api-key` |
 | `cohereApiKey` | `COHERE_API_KEY` | `--cohere-api-key` |
+
+**DVC/Wasabi** (for `data/sets/` datasets):
+
+| Purpose | Env Var | Notes |
+|---------|---------|-------|
+| Wasabi access key | `WASABI_ACCESS_KEY` | Export as `AWS_ACCESS_KEY_ID` for DVC |
+| Wasabi secret key | `WASABI_SECRET_KEY` | Export as `AWS_SECRET_ACCESS_KEY` for DVC |
 
 Config files: `.embedding4ldrc` (project) or `~/.embedding_test/config.json` (user), loaded via c12.
 
