@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "AI-enhanced text search exploration with Hugging Face",
   "type": "module",
+  "private": true,
   "main": "dist/index.js",
   "bin": {
     "embedding4ld": "./dist/cli.js"
   },
+  "workspaces": ["apps/*"],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
@@ -15,7 +17,11 @@
     "scrape": "tsx src/scraper.ts",
     "migrate:neon": "tsx src/migrate-to-neon.ts",
     "seed:queries": "tsx src/seed-queries.ts",
-    "test:e2e": "tsx src/test-e2e.ts"
+    "test:e2e": "tsx src/test-e2e.ts",
+    "admin": "pnpm --filter admin dev",
+    "admin:build": "pnpm --filter admin build",
+    "admin:test": "pnpm --filter admin test",
+    "admin:lint": "pnpm --filter admin lint"
   },
   "keywords": [],
   "author": "",
