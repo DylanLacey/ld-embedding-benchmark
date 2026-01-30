@@ -30,6 +30,6 @@ export const actions = {
 			.returning({ id: grammarPoints.id })
 			.get();
 
-		redirect(303, `/grammar/${result.id}`);
+		throw redirect(303, `/grammar/${result.id}`);
 	},
 };
