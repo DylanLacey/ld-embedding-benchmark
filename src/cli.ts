@@ -18,6 +18,26 @@ import {
 	deleteBranch,
 	getBranchUrl,
 } from "./commands/branch.js";
+import { loadConfig, requireConfig, type Config } from "./config/index.js";
+
+/**
+ * Extracts credential overrides from Commander's global options.
+ * Maps kebab-case flags to camelCase config keys.
+ * Only includes values that were actually provided (not undefined).
+ */
+function getCliOverrides(opts: Record<string, unknown>): Partial<Config> {
+	const overrides: Partial<Config> = {};
+
+	// Only include keys that were explicitly provided
+	if (opts.neonApiKey) overrides.neonApiKey = opts.neonApiKey as string;
+	if (opts.neonProjectId) overrides.neonProjectId = opts.neonProjectId as string;
+	if (opts.databaseUrl) overrides.databaseUrl = opts.databaseUrl as string;
+	if (opts.hfToken) overrides.hfToken = opts.hfToken as string;
+	if (opts.openaiApiKey) overrides.openaiApiKey = opts.openaiApiKey as string;
+	if (opts.cohereApiKey) overrides.cohereApiKey = opts.cohereApiKey as string;
+
+	return overrides;
+}
 
 // ASCII art banner — the herald of computational linguistics
 const BANNER = `
@@ -35,6 +55,16 @@ program
 	.name("embedding4ld")
 	.description("Embedding benchmark for multi-linguistic grammar retrieval")
 	.version("1.0.0")
+	// ─────────────────────────────────────────────────────────────
+	// Global credential options — available to all commands
+	// CLI flags override env vars override config files
+	// ─────────────────────────────────────────────────────────────
+	.option("--neon-api-key <key>", "Neon API key (overrides NEON_API_KEY)")
+	.option("--neon-project-id <id>", "Neon project ID (overrides NEON_PROJECT_ID)")
+	.option("--database-url <url>", "Database connection URL (overrides DATABASE_URL)")
+	.option("--hf-token <token>", "HuggingFace API token (overrides HF_TOKEN)")
+	.option("--openai-api-key <key>", "OpenAI API key (overrides OPENAI_API_KEY)")
+	.option("--cohere-api-key <key>", "Cohere API key (overrides COHERE_API_KEY)")
 	.hook("preAction", () => {
 		console.log(BANNER);
 	});
