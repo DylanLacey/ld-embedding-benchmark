@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint-admin:
+      glob: "apps/admin/src/**/*.{ts,svelte}"
+      run: pnpm --filter admin lint
+    test-admin:
+      glob: "apps/admin/src/**/*.{ts,svelte}"
+      run: pnpm --filter admin test
