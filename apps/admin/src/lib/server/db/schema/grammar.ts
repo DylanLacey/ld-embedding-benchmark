@@ -36,7 +36,7 @@ export const grammarPoints = sqliteTable("grammar_points", {
 
 export const examples = sqliteTable("examples", {
 	id: integer("id").primaryKey({ autoIncrement: true }),
-	grammarPointId: integer("grammar_point_id").references(() => grammarPoints.id, {
+	grammarId: integer("grammar_id").references(() => grammarPoints.id, {
 		onDelete: "cascade",
 	}),
 	japanese: text("japanese").notNull(),

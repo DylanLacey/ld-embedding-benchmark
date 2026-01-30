@@ -16,7 +16,7 @@ export async function load({ params }) {
 	const pointExamples = grammarDb
 		.select()
 		.from(examples)
-		.where(eq(examples.grammarPointId, point.id))
+		.where(eq(examples.grammarId, point.id))
 		.all();
 
 	const allLevels = grammarDb
