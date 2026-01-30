@@ -96,8 +96,10 @@ program
 	.command("destroy")
 	.description("Delete Neon project and remove ~/.embedding_test")
 	.option("-f, --force", "Skip confirmation prompt")
-	.action(async (opts) => {
-		await destroyProject({ force: opts.force });
+	.action(async (opts, cmd) => {
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+		await destroyProject({ force: opts.force, config });
 	});
 
 // ─────────────────────────────────────────────────────────────
@@ -106,8 +108,10 @@ program
 program
 	.command("status")
 	.description("Show current configuration and Neon branches")
-	.action(async () => {
-		await showStatus();
+	.action(async (_opts, cmd) => {
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+		await showStatus({ config });
 	});
 
 // ─────────────────────────────────────────────────────────────
@@ -118,23 +122,29 @@ const branchCmd = program.command("branch").description("Manage Neon branches");
 branchCmd
 	.command("list")
 	.description("List all branches")
-	.action(async () => {
-		await listBranches();
+	.action(async (_opts, cmd) => {
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+		await listBranches({ config });
 	});
 
 branchCmd
 	.command("create <name>")
 	.description("Create a new branch")
 	.option("-p, --parent <branch>", "Parent branch name", "main")
-	.action(async (name: string, opts) => {
-		await createBranch(name, { parent: opts.parent });
+	.action(async (name: string, opts, cmd) => {
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+		await createBranch(name, { parent: opts.parent, config });
 	});
 
 branchCmd
 	.command("delete <name>")
 	.description("Delete a branch")
-	.action(async (name: string) => {
-		await deleteBranch(name);
+	.action(async (name: string, _opts, cmd) => {
+		const globalOpts = cmd.optsWithGlobals();
+		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
+		await deleteBranch(name, { config });
 	});
 
 // ─────────────────────────────────────────────────────────────
@@ -164,10 +174,10 @@ program
 		const globalOpts = cmd.optsWithGlobals();
 		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
 
-		// Resolve branch URL if not on main
+		// Resolve branch URL if not on main (pass config for API credentials)
 		const branchUrl =
 			opts.branch && opts.branch !== "main"
-				? await getBranchUrl(opts.branch)
+				? await getBranchUrl(opts.branch, { config })
 				: undefined;
 
 		const result = await embedGrammarConstructs({
@@ -195,10 +205,10 @@ program
 		const globalOpts = cmd.optsWithGlobals();
 		const config = await loadConfig({ cliOverrides: getCliOverrides(globalOpts) });
 
-		// Resolve branch URL if not on main
+		// Resolve branch URL if not on main (pass config for API credentials)
 		const branchUrl =
 			opts.branch && opts.branch !== "main"
-				? await getBranchUrl(opts.branch)
+				? await getBranchUrl(opts.branch, { config })
 				: undefined;
 
 		const result = await runBenchmark({

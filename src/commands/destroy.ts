@@ -4,8 +4,9 @@
 import readline from "node:readline";
 import ora from "ora";
 import pc from "picocolors";
-import { deleteNeonProject } from "../neon-api.js";
+import { deleteNeonProject, getApiKey, getProjectId } from "../neon-api.js";
 import { configExists, deleteConfigDir, readConfig } from "../paths.js";
+import type { Config } from "../config/index.js";
 
 async function confirm(message: string): Promise<boolean> {
 	const rl = readline.createInterface({
@@ -21,9 +22,17 @@ async function confirm(message: string): Promise<boolean> {
 	});
 }
 
-export async function destroyProject(options: {
+/**
+ * Options for destroy command.
+ */
+export interface DestroyOptions {
+	/** Skip confirmation prompt */
 	force?: boolean;
-}): Promise<void> {
+	/** Unified config with possible CLI/env overrides */
+	config?: Config;
+}
+
+export async function destroyProject(options: DestroyOptions = {}): Promise<void> {
 	const spinner = ora();
 
 	if (!configExists()) {
@@ -54,10 +63,13 @@ export async function destroyProject(options: {
 	}
 
 	try {
-		// Delete Neon project
-		if (config.neonProjectId && config.neonApiKey) {
+		// Delete Neon project (use unified config for API key/project ID if provided)
+		const apiKey = options.config?.neonApiKey ?? config.neonApiKey;
+		const projectId = options.config?.neonProjectId ?? config.neonProjectId;
+
+		if (projectId && apiKey) {
 			spinner.start("Deleting Neon project...");
-			await deleteNeonProject(config.neonApiKey, config.neonProjectId);
+			await deleteNeonProject(apiKey, projectId);
 			spinner.succeed("Neon project deleted");
 		}
 

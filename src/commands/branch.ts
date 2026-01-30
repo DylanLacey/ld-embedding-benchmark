@@ -11,12 +11,22 @@ import {
   getApiKey,
   getProjectId,
 } from "../neon-api.js";
+import type { Config } from "../config/index.js";
 
-export async function listBranches(): Promise<void> {
+/**
+ * Options for branch commands.
+ */
+export interface BranchCommandOptions {
+  /** Unified config with possible CLI/env overrides */
+  config?: Config;
+}
+
+export async function listBranches(options: BranchCommandOptions = {}): Promise<void> {
+  const { config } = options;
   const spinner = ora("Fetching branches...").start();
 
   try {
-    const branches = await listNeonBranches(getApiKey(), getProjectId());
+    const branches = await listNeonBranches(getApiKey(config), getProjectId(config));
     spinner.stop();
 
     const table = new Table({
@@ -42,13 +52,14 @@ export async function listBranches(): Promise<void> {
 
 export async function createBranch(
   name: string,
-  options: { parent?: string }
+  options: { parent?: string; config?: Config }
 ): Promise<void> {
+  const { config } = options;
   const spinner = ora(`Creating branch: ${name}`).start();
 
   try {
-    const apiKey = getApiKey();
-    const projectId = getProjectId();
+    const apiKey = getApiKey(config);
+    const projectId = getProjectId(config);
 
     // Find parent branch ID if name provided
     let parentBranchId: string | undefined;
@@ -77,12 +88,13 @@ export async function createBranch(
   }
 }
 
-export async function deleteBranch(name: string): Promise<void> {
+export async function deleteBranch(name: string, options: BranchCommandOptions = {}): Promise<void> {
+  const { config } = options;
   const spinner = ora(`Deleting branch: ${name}`).start();
 
   try {
-    const apiKey = getApiKey();
-    const projectId = getProjectId();
+    const apiKey = getApiKey(config);
+    const projectId = getProjectId(config);
 
     // Find branch ID by name
     const branches = await listNeonBranches(apiKey, projectId);
@@ -104,9 +116,10 @@ export async function deleteBranch(name: string): Promise<void> {
   }
 }
 
-export async function getBranchUrl(name: string): Promise<string> {
-  const apiKey = getApiKey();
-  const projectId = getProjectId();
+export async function getBranchUrl(name: string, options: BranchCommandOptions = {}): Promise<string> {
+  const { config } = options;
+  const apiKey = getApiKey(config);
+  const projectId = getProjectId(config);
 
   const branches = await listNeonBranches(apiKey, projectId);
   const branch = branches.find((b) => b.name === name);

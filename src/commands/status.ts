@@ -5,8 +5,19 @@ import Table from "cli-table3";
 import pc from "picocolors";
 import { getApiKey, getProjectId, listNeonBranches } from "../neon-api.js";
 import { CONFIG_DIR, configExists, readConfig } from "../paths.js";
+import type { Config } from "../config/index.js";
 
-export async function showStatus(): Promise<void> {
+/**
+ * Options for status command.
+ */
+export interface StatusOptions {
+  /** Unified config with possible CLI/env overrides */
+  config?: Config;
+}
+
+export async function showStatus(options: StatusOptions = {}): Promise<void> {
+  const { config: unifiedConfig } = options;
+
 	if (!configExists()) {
 		console.log(
 			pc.yellow("\n⚠ Not initialised. Run 'embedding4ld init' first.\n"),
@@ -14,6 +25,7 @@ export async function showStatus(): Promise<void> {
 		return;
 	}
 
+  // Read stored config for display (unified config might override for API calls)
 	const config = readConfig();
 
 	console.log(pc.cyan("\n╭────────────────────────────────────────╮"));
@@ -40,9 +52,9 @@ export async function showStatus(): Promise<void> {
 
 	console.log(configTable.toString());
 
-	// List branches
+	// List branches (use unified config for API key/project ID if provided)
 	try {
-		const branches = await listNeonBranches(getApiKey(), getProjectId());
+		const branches = await listNeonBranches(getApiKey(unifiedConfig), getProjectId(unifiedConfig));
 
 		console.log(pc.cyan("\nBranches:"));
 		const branchTable = new Table({

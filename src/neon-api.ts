@@ -1,5 +1,7 @@
 // src/neon-api.ts
+// Neon Management API client — create projects, branches, and connections
 import { readConfig } from "./paths.js";
+import type { Config } from "./config/index.js";
 
 const NEON_API_BASE = "https://console.neon.tech/api/v2";
 
@@ -175,18 +177,44 @@ export async function getBranchConnectionUri(
 // Config helpers — throw helpful errors when credentials are missing
 // ─────────────────────────────────────────────────────────────────
 
-export function getApiKey(): string {
-  const config = readConfig();
-  if (!config.neonApiKey) {
-    throw new Error("Neon API key not found. Run 'embedding4ld init' first.");
+/**
+ * Gets the Neon API key from config or stored credentials.
+ *
+ * Priority: unified config (if provided) > stored user config
+ *
+ * @param unifiedConfig - Optional config from the unified config system
+ */
+export function getApiKey(unifiedConfig?: Config): string {
+  // Check unified config first (includes CLI flags, env vars, project config)
+  if (unifiedConfig?.neonApiKey) {
+    return unifiedConfig.neonApiKey;
   }
-  return config.neonApiKey;
+
+  // Fall back to stored user config
+  const storedConfig = readConfig();
+  if (!storedConfig.neonApiKey) {
+    throw new Error("Neon API key not found. Run 'embedding4ld init' or provide --neon-api-key.");
+  }
+  return storedConfig.neonApiKey;
 }
 
-export function getProjectId(): string {
-  const config = readConfig();
-  if (!config.neonProjectId) {
-    throw new Error("Neon project not found. Run 'embedding4ld init' first.");
+/**
+ * Gets the Neon project ID from config or stored credentials.
+ *
+ * Priority: unified config (if provided) > stored user config
+ *
+ * @param unifiedConfig - Optional config from the unified config system
+ */
+export function getProjectId(unifiedConfig?: Config): string {
+  // Check unified config first
+  if (unifiedConfig?.neonProjectId) {
+    return unifiedConfig.neonProjectId;
   }
-  return config.neonProjectId;
+
+  // Fall back to stored user config
+  const storedConfig = readConfig();
+  if (!storedConfig.neonProjectId) {
+    throw new Error("Neon project not found. Run 'embedding4ld init' or provide --neon-project-id.");
+  }
+  return storedConfig.neonProjectId;
 }
